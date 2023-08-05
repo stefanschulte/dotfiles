@@ -24,7 +24,7 @@ font:
   bold_italic:
     family: "SFMono Nerd Font"
     style: Heavy Italic
-  size: 20.0
+  size: 15.0
 
 # NOTE: helpful hex codes
 # \x1b = escape (useful for vim-related keybindings)
