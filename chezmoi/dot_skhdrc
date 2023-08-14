@@ -9,16 +9,16 @@
 # https://github.com/koekeishiya/skhd
 
 # focus window
-cmd + ctrl + alt + shift - h : yabai -m window --focus west
-cmd + ctrl + alt + shift - j : yabai -m window --focus south
-cmd + ctrl + alt + shift - k : yabai -m window --focus north
-cmd + ctrl + alt + shift - l : yabai -m window --focus east
+hyper - h : yabai -m window --focus west
+hyper - j : yabai -m window --focus south
+hyper - k : yabai -m window --focus north
+hyper - l : yabai -m window --focus east
 
 # swap managed window
-cmd + ctrl + alt + shift - a : yabai -m window --swap west
-cmd + ctrl + alt + shift - s : yabai -m window --swap south
-cmd + ctrl + alt + shift - d: yabai -m window --swap north
-cmd + ctrl + alt + shift - f : yabai -m window --swap east
+hyper - a : yabai -m window --swap west
+hyper - s : yabai -m window --swap south
+hyper - d: yabai -m window --swap north
+hyper - f : yabai -m window --swap east
 
 # move managed window
 shift + alt - h : yabai -m window --warp west
@@ -27,10 +27,10 @@ shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
 # rotate tree
-cmd + ctrl + alt + shift - r : yabai -m space --rotate 90
+hyper - r : yabai -m space --rotate 90
 
 # toggle window fullscreen zoom
-cmd + ctrl + alt + shift - w : yabai -m window --toggle zoom-fullscreen
+hyper - w : yabai -m window --toggle zoom-fullscreen
 
 # alt - s : yabai -m window --toggle
 shift + alt - s : yabai -m window --toggle sticky;\
@@ -38,20 +38,20 @@ shift + alt - s : yabai -m window --toggle sticky;\
           yabai -m window --toggle pip
 
 # toggle padding and gap
-cmd + ctrl + alt + shift - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+hyper - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # float / unfloat window and center on screen
-cmd + ctrl + alt + shift - t : yabai -m window --toggle float;\
+hyper - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
 # toggle window split type
-cmd + ctrl + alt + shift - e : yabai -m window --toggle split
+hyper - e : yabai -m window --toggle split
 
 # bring up mission-control
-cmd + ctrl + alt + shift - m : yabai -m space --toggle mission-control
+hyper - m : yabai -m space --toggle mission-control
 
 # balance size of windows
-cmd + ctrl + alt + shift - 0 : yabai -m space --balance
+hyper - 0 : yabai -m space --balance
 
 # move window and focus desktop
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
@@ -66,13 +66,13 @@ shift + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
 shift + alt - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-cmd + ctrl + alt + shift - n : yabai -m space --create && \
+hyper - n : yabai -m space --create && \
                    set index "$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
                    yabai -m window --space "$index" && \
                    yabai -m space --focus "$index"
 
 # fast focus desktop
-cmd + ctrl + alt + shift - tab : yabai -m space --focus recent
+hyper - tab : yabai -m space --focus recent
 
 # send window to monitor and follow focus
 shift + alt - n : yabai -m window --display next; yabai -m display --focus next
