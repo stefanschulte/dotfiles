@@ -1,0 +1,6 @@
+["Library/PreferencePanes/Cursorcerer.prefPane"]
+    type = "archive"
+    url = "https://www.doomlaser.com/downloads/Cursorcerer.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "720h"

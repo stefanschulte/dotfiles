@@ -302,3 +302,7 @@ Temporary Items
 /dispatcher/docs/
 /dispatcher/lib/
 /dispatcher/out/
+
+# homebrew
+Brewfile.lock.json
+Brewfile

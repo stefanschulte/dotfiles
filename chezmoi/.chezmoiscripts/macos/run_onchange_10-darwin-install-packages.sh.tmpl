@@ -1,0 +1,94 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# For forcing homebrew to replace existing applications that were installed manually, add "--force" to the brew bundle command
+# For uninstalling applications that aren't part of this bundle definition, add "--cleanup" to the brew bundle command
+brew bundle --no-lock --no-upgrade --file=/dev/stdin <<EOF
+
+cask_args appdir: '/Applications'
+
+tap "homebrew/bundle"
+tap "jesseduffield/lazygit"
+tap "koekeishiya/formulae"
+tap "powershell/tap"
+
+brew "azure-cli"                            # Microsoft Azure CLI - https://docs.microsoft.com/en-us/cli/azure/
+brew "bash"                                 # An up-to-date version of Bash shell - https://www.gnu.org/software/bash/
+brew "bat"                                  # Replacement for interactive cat commands - https://github.com/sharkdp/bat
+brew "chezmoi"                              # Dotfile manager - https://www.chezmoi.io/
+brew "fd"                                   # More user friendly alternative to find command - https://github.com/sharkdp/fd
+brew "fzf"                                  # Fuzzy finder for terminal, a must have - https://github.com/junegunn/fzf
+brew "gh"                                   # GitHub CLI - https://cli.github.com/
+brew "git"                                  # Git version control system - https://git-scm.com/
+brew "git-delta"                            # Better Git diff viewer - https://github.com/dandavison/delta
+brew "git-filter-repo"                      # Git history rewriting tool for cleaning up git repos - https://github.com/newren/git-filter-repo
+brew "git-lfs"                              # Git Large File Storage plugin - https://git-lfs.github.com/
+brew "git-sizer"                            # Git repository size checker - https://github.com/github/git-sizer
+brew "glances"                              # CLI System monitoring tool - https://nicolargo.github.io/glances/
+brew "jq"                                   # JSON processor - https://stedolan.github.io/jq/
+brew "lf"                                   # Terminal file manager - https://github.com/gokcehan/lf
+brew "mas"                                  # Apple App Store CLI - https://github.com/mas-cli/mas
+brew "mosh"                                 # Mobile shell for unreliable ssh connections - https://mosh.org/
+brew "ncdu"                                 # Disk usage analyzer - https://dev.yorhel.nl/ncdu
+brew "pre-commit"                           # Git pre-commit hook framework - https://pre-commit.com/
+brew "prettyping"                           # Ping utility with a pretty output - https://denilson.sa.nom.br/prettyping/
+brew "ripgrep"                              # grep alternative - https://github.com/BurntSushi/ripgrep
+brew "testssl"                              # SSL/TLS security testing tool - https://testssl.sh/
+brew "tldr"                                 # Condensed versions of man pages - https://tldr.sh/
+brew "wget"                                 # Download utility - https://www.gnu.org/software/wget/
+brew "yq"                                   # YAML processor - https://github.com/mikefarah/yq
+#TODO: zplug needs to be independently installed from any package manager
+brew "zplug"                                # Zsh plugin manager - https://github.com/zplug/zplug
+brew "jesseduffield/lazygit/lazygit"        # CLI GUI for git operations - https://github.com/jesseduffield/lazygit
+brew "koekeishiya/formulae/skhd"            # Simple hotkey daemon for macOS, to be used with Yabai - https://github.com/koekeishiya/skhd
+brew "koekeishiya/formulae/yabai"           # Tiling window manager for macOS - https://github.com/koekeishiya/yabai
+brew "powershell/tap/powershell"            # PowerShell Core - https://learn.microsoft.com/en-gb/powershell/
+
+cask "1password"                            # 1Password for Mac - https://1password.com/
+cask "1password-cli"                        # 1Password CLI - https://1password.com/
+cask "balenaetcher"                         # Flash tool for images/isos - https://etcher.balena.io/
+cask "bartender"                            # Hide menu bar icons on macOS - https://www.macbartender.com/
+cask "brave-browser"                        # Brave browser - https://brave.com/
+cask "bruno"                                # scriptable API client - https://www.usebruno.com/
+cask "discord"                              # Discord group chat - https://discord.com/
+cask "docker"                               # Docker for Desktop - https://www.docker.com/products/docker-desktop
+cask "firefox@developer-edition"            # Firefox Developer Edition - https://www.mozilla.org/en-GB/firefox/developer/
+cask "focusrite-control"                    # Focusrite Audio interface control app - https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_type=1360&download_type=all
+cask "font-meslo-lg-nerd-font"              # Install font for terminal - https://coding-fonts.pages.dev/fonts/meslo-lg/
+cask "intune-company-portal"                # Microsoft Intune Company Portal - https://learn.microsoft.com/en-us/mem/intune/user-help/enroll-your-device-in-intune-macos-cp
+cask "iterm2"                               # iTerm2 terminal emulator - https://iterm2.com/
+cask "jellyfin-media-player"                # Media player for jellyfin servers - https://github.com/jellyfin/jellyfin-media-player
+cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
+cask "microsoft-azure-storage-explorer"     # Microsoft Azure Storage Explorer - https://azure.microsoft.com/en-us/features/storage-explorer/
+cask "microsoft-edge"                       # Microsoft Edge browser - https://www.microsoft.com/en-us/edge
+cask "microsoft-teams"                      # Microsoft Teams - https://www.microsoft.com/en-us/microsoft-teams/download-app
+cask "nikitabobko/tap/aerospace"            # Aerospace tiling window manager for macOS - https://github.com/nikitabobko/AeroSpace
+cask "obsidian"                             # Knowledge Base/2nd Brain - https://obsidian.md/
+cask "onedrive"                             # Microsoft OneDrive - https://www.microsoft.com/en-us/microsoft-365/onedrive/download
+cask "proton-mail"                          # ProtonMail mail client - https://protonmail.com/
+cask "sensiblesidebuttons"                  # Adds Windows-like mouse side button functionality to macOS, https://sensible-side-buttons.archagon.net/
+cask "signal"                               # Signal messenger - https://signal.org/
+cask "spotify"                              # Spotify music client - https://www.spotify.com/
+cask "steam"                                # Steam game client - https://store.steampowered.com/
+cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
+cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
+cask "visual-studio-code"                   # Visual Studio Code - https://code.visualstudio.com/
+cask "wireshark"                            # Wireshark network protocol analyzer - https://www.wireshark.org/
+
+# Be aware that Apple does not allow to script initial downloads or purchases from the App store.
+# An initial install must always happen via the App Store GUI. After that your apple account is flagged for that application and the app can be installed via the command line.
+mas "1Password for Safari", id: 1569813296   # 1Password extension for Safari
+mas "Dark Reader for Safari", id: 1438243180 # Dark mode browser extension for Safari
+mas "Wipr", id: 1320666476                   # Adblocker extension for Safari
+mas "Keka", id: 470158793                    # File compression utility, since macOS has no good builtin one - Paid app!!
+mas "Keymapp", id: 6472865291                # Flash/configuration/training tool for ZSA keyboards - https://www.zsa.io/flash
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "Reeder", id: 1529448980                 # RSS reader - https://reederapp.com/
+mas "Shazam", id: 897118787                  # Music recognition app
+mas "Slack", id: 803453959                   # Slack group chat
+
+EOF
+{{ end -}}

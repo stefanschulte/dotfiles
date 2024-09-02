@@ -1,0 +1,32 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Menu bar
+
+
+## Topnotch config
+defaults write pl.maketheweb.TopNotch "roundCorners" -bool "false"
+defaults write pl.maketheweb.TopNotch "useDynamicWallpapers" -bool "false"
+defaults write pl.maketheweb.TopNotch "lastAcceptedEulaVersion" -bool "true"
+defaults write pl.maketheweb.TopNotch "hideOnBuiltInOnly" -bool "true"
+defaults write pl.maketheweb.TopNotch "firstLaunch" -bool "false"
+defaults write pl.maketheweb.TopNotch "hideMenubarIcon" -bool "false"
+defaults write pl.maketheweb.TopNotch "isEnabled" -bool "true"
+
+## Sensible sidebuttons
+defaults write net.archagon.sensible-side-buttons "SBFWasEnabled" -bool "true"
+
+# Dock
+defaults write com.apple.dock "autohide" -bool "true"
+defaults write com.apple.dock "tilesize" -int "80"
+defaults write com.apple.dock "show-recents" -bool "false"
+defaults write com.apple.dock "magnification" -bool "true"
+defaults write com.apple.dock "minimize-to-application" -bool "false"
+defaults write com.apple.dock "mineffect" -string "scale"
+defaults write com.apple.dock "autohide-delay" -float "0.1"
+defaults write com.apple.dock "autohide-time-modifier" -float "1"
+killall Dock # Restart the Dock to apply changes
+
+# iterm2
+defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/stefan/Library/Mobile Documents/com~apple~CloudDocs/config/iterm2" # Set the custom path for settings icloud sync
+{{ end -}}

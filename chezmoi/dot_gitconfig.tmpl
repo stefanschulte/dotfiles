@@ -1,0 +1,42 @@
+[user]
+    name = Stefan Schulte
+    email = github@stefanschulte.dev
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R
+[color]
+    ui = true
+[core]
+    autocrlf = false
+    filemode = false
+    editor = code --wait
+    pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[diff]
+	colorMoved = default
+[delta]
+	navigate = true
+	line-numbers = true
+    side-by-side = true
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[init]
+    defaultBranch = main
+[pull]
+    rebase = true
+[rerere]
+    enabled = true
+[remote "origin"]
+    prune = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[commit]
+  gpgsign = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = "$HOME/.ssh/allowed_signers"

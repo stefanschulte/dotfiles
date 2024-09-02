@@ -1,0 +1,112 @@
+{{ if eq .chezmoi.os "darwin" -}}
+{
+  "showBartenderBar" : false,
+  "showMenuBarIcon" : true,
+  "startAtLogin" : true,
+  "useSystemLanguage" : true,
+  "hideAllForInactiveBars" : false,
+  "swipeOrScrollMenuBar" : true,
+  "onlyShowOnNotch" : false,
+  "clickOnEmptyBarSpace" : true,
+  "triggerSettings" : {
+    "WiFi1" : {
+      "isActive" : true,
+      "name" : "Show Wi-Fi when Wi-Fi condition met",
+      "triggerSpecificDict" : "{\"ShowOn\":\"AllDisconnected\",\"WiFiSSID\":\"\"}",
+      "triggeredConditions" : [
+
+      ],
+      "icon" : {
+        "isTemplate" : false
+      },
+      "description" : "",
+      "type" : [
+        "WiFi"
+      ],
+      "isBuiltIn" : false,
+      "uniqueID" : "WiFi1",
+      "hasTriggered" : false,
+      "isSpecial" : false
+    },
+    "Battery1" : {
+      "isSpecial" : false,
+      "type" : [
+        "Battery"
+      ],
+      "triggerSpecificDict" : "{\"Battery-percentage\":50,\"Battery-When\":\"OnBatteryPower\"}",
+      "isActive" : true,
+      "description" : "",
+      "isBuiltIn" : false,
+      "triggeredConditions" : [
+
+      ],
+      "icon" : {
+        "isTemplate" : true
+      },
+      "hasTriggered" : false,
+      "name" : "Show Battery when battery condition met",
+      "uniqueID" : "Battery1"
+    },
+    "5A53AF97-BA9F-44F5-8018-73B8BA0DC477" : {
+      "isBuiltIn" : false,
+      "isActive" : true,
+      "triggerSpecificDict" : "{\"Script\":\"tmutil status | awk -F'=' '\\\/Running\\\/ {print $2*1}'\"}",
+      "name" : "Show Time Machine when time machine is backing up.",
+      "description" : "Bartender 4 script show for update converted to a Trigger, please check it does what you want before enabling, as there may be better ways to do they same with the new trigger conditions and presets.",
+      "hasTriggered" : false,
+      "icon" : {
+        "isTemplate" : false
+      },
+      "type" : [
+        "Script"
+      ],
+      "isSpecial" : false,
+      "uniqueID" : "5A53AF97-BA9F-44F5-8018-73B8BA0DC477",
+      "triggeredConditions" : [
+
+      ]
+    }
+  },
+  "hoverOverEmptyMenuBarSpace" : false,
+  "showAllWhenScreenIsLarge" : false,
+  "delayBeforeShowingOnHover" : 0.2,
+  "thresholdForScreenIsLarge" : 3000,
+  "menuBarColoringSpaceSettings" : {
+    "displayNumber" : "",
+    "spaceNumber" : 0,
+    "spaceID" : "",
+    "isNotched" : false,
+    "menuBarStyling" : {
+      "HiddenInactiveMenuBar" : false,
+      "BorderColor" : [
+        0,
+        0,
+        0,
+        1
+      ],
+      "HideNotch" : false,
+      "RoundedMenuBar" : false,
+      "RoundTopOfMenuBar" : false,
+      "Shadow" : false,
+      "BorderThickness" : 0,
+      "BackgroundColors" : [
+        {
+          "location" : 0,
+          "color" : {
+            "alpha" : 0,
+            "red" : 0,
+            "blue" : 0,
+            "green" : 0
+          }
+        }
+      ],
+      "RoundBottomOfScreen" : false,
+      "SeperatePills" : false,
+      "RoundBelowMenuBar" : false,
+      "RoundedCorners" : 0
+    },
+    "displayID" : "",
+    "screenName" : ""
+  }
+}
+{{ end -}}

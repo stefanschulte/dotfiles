@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+      "*.alias": "shellscript",
+      "*.toml.tmpl": "ini",
+      "*.json.tmpl": "json",
+      "*.yml.tmpl": "yaml",
+      "*.yaml.tmpl": "yaml",
+      "*.sh.tmpl": "shellscript",
+      "dot_*rc": "shellscript",
+      "dot_*rc.tmpl": "shellscript",
+  }
+}
