@@ -1,6 +1,17 @@
-README.md
-
 # List target files and directories only to be installed on macos systems
 {{- if ne .chezmoi.os "darwin" -}}
 Library/PreferencePanes/Cursorcerer.prefPane
+
+.config/bartender
+.config/karabiner
+.config/skhd
+.config/yabai
+{{ end -}}
+
+# List target files and directories only to be installed on windows systems
+{{- if ne .chezmoi.os "windows" -}}
+Appdata
+
+.config/komorebi
+.config/whkd
 {{ end -}}

@@ -1,0 +1,25 @@
+{{- if eq .chezmoi.os "windows" -}}
+
+# TODO: make this idempotent
+# Setup env variables for Komorebi
+$komorebiConfigVarName = "KOMOREBI_CONFIG_HOME"
+$komorebiConfigVarValue = "C:\Users\stefa\.config\komorebi"
+$whkdConfigVarName = "WHKD_CONFIG_HOME"
+$whkdConfigVarValue = "C:\Users\stefa\.config\whkd"
+
+# Set the environment variable in the registry
+Set-ItemProperty -Path "HKCU:\Environment" -Name $komorebiConfigVarName -Value $komorebiConfigVarValue
+Set-ItemProperty -Path "HKCU:\Environment" -Name $whkdConfigVarName -Value $whkdConfigVarValue
+
+# Optionally, update the current session environment variable
+[System.Environment]::SetEnvironmentVariable($komorebiConfigVarName, $komorebiConfigVarValue, [System.EnvironmentVariableTarget]::User)
+[System.Environment]::SetEnvironmentVariable($whkdConfigVarName, $whkdConfigVarValue, [System.EnvironmentVariableTarget]::User)
+
+
+# Create autostart shortcut for komorebi to start on login
+komorebic.exe enable-autostart --whkd
+
+# Start komorebi
+komorebic.exe start --whkd
+
+{{ end -}}

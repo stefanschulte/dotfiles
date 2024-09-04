@@ -11,11 +11,33 @@ chezmoi managed dotfiles for these platforms:
 
 ## macOS
 
+### Installation
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+```
+
 ### Manual steps required
 
 - PRA Access console - Access console needs to be manually downloaded from access.viega.com/login since it's console specific download.
 - zscaler download if Viega device
 - Bartender settings import
+- Import viega pki certs
+
+## Windows
+
+### Installation
+
+```powershell
+iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
+chezmoi init --apply --verbose https://github.com/$GITHUB_USERNAME/dotfiles.git
+```
+
+### Manual steps required
+
+- PRA Access console - Access console needs to be manually downloaded from access.viega.com/login since it's console specific download.
+- zscaler download if Viega device
+- Maybe: make windows terminal the default terminal
 - Import viega pki certs
 
 ## License
