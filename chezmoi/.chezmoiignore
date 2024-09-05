@@ -10,9 +10,10 @@ Library/PreferencePanes/Cursorcerer.prefPane
 
 # List target files and directories only to be installed on windows systems
 {{- if ne .chezmoi.os "windows" -}}
-Appdata
 
-.local/share/fonts
+Appdata/
+Appdata/**
+
 .config/komorebi
 .config/whkd
 {{ end -}}
