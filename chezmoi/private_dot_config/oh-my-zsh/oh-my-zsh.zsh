@@ -10,7 +10,7 @@ ZSH_COMPDUMP="$XDG_CACHE_HOME/.zcompdump"
 # Add timestamps to history wrapper
 HIST_STAMPS="yyyy-mm-dd"
 
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
+export ZPLUG_HOME="$HOME/.zplug"
 source $ZPLUG_HOME/init.zsh
 
 # Install plugins if there are plugins that have not been installed
