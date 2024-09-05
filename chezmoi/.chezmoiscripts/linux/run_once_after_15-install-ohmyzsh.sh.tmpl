@@ -3,12 +3,12 @@
 
 # Check if zsh is already installed
 if ! command -v zsh &> /dev/null; then
-  sudo apt install zsh -y --non-interactive
+  sudo DEBIAN_FRONTEND=noninteractive apt-get -y install zsh
 fi
 
 # Change the default shell to zsh non-interactively if it isn't already zsh
 if [ "$SHELL" != "$(which zsh)" ]; then
-  sudo chsh -s $(which zsh) $USER
+  chsh -s $(which zsh) $USER
 fi
 
 # Check if oh-my-zsh is already installed

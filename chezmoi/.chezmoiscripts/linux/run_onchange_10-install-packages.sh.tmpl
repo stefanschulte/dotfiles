@@ -1,0 +1,37 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+# Update all already installed packages
+sudo DEBIAN_FRONTEND=noninteractive apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+
+# Install minimal package set
+# Used in devcontainers, docker containers and codespaces
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
+	bat \
+	fd-find \
+	delta \
+  lf \
+  ripgrep
+
+# Install additional packages
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
+	git-filter-repo \
+	git-lfs \
+	git-sizer \
+	glances \
+	jq \
+	mosh \
+	ncdu \
+	pre-commit \
+	prettyping \
+	testssl.sh \
+	tldr \
+	wget \
+	yq \
+  azure-cli \
+	fzf \
+	gh \
+	git \
+  chezmoi
+{{ end -}}

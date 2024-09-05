@@ -1,6 +1,8 @@
 # set proper language locales
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+# TODO: check what the recommended locales to install are. And if they are missing on the OS, have to be installed via script
 
 # XDG Base Directory
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -18,13 +20,13 @@ export VISUAL='code'
 
 # Custom root cert handling
 # Make sure ruby apps use global trust store
-export SSL_CERT_FILE="/etc/ssl/cert.pem"
+#export SSL_CERT_FILE="/etc/ssl/cert.pem"
 # Make sure curl uses global trust store
-export CURL_CA_BUNDLE="/etc/ssl/cert.pem"
+#export CURL_CA_BUNDLE="/etc/ssl/cert.pem"
 # Make sure nodejs apps use global trust store
-export NODE_EXTRA_CA_CERTS="/etc/ssl/cert.pem"
+#export NODE_EXTRA_CA_CERTS="/etc/ssl/cert.pem"
 # Make sure python apps use global trust store
-export REQUESTS_CA_BUNDLE="/etc/ssl/cert.pem"
+#export REQUESTS_CA_BUNDLE="/etc/ssl/cert.pem"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -47,3 +49,6 @@ done
 for file in $HOME/.config/**/*.alias; do
     source "$file"
 done
+
+# Add user home bin directory to Path
+export PATH="$HOME/.local/bin:$PATH"
