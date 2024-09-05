@@ -1,0 +1,16 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Check if oh-my-zsh is already installed
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  # Install oh-my-zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# Check if zplug is already installed in /opt/homebrew/opt/zplug
+if [ ! -d "/opt/homebrew/opt/zplug" ]; then
+  # Install zplug for plugin management
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+
+{{ end -}}
