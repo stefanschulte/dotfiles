@@ -1,7 +1,8 @@
 # fzf configuration
 
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
+# TODO: fix fzf configs, this throws unknown option within devcontainers
+#eval "$(fzf --zsh)"
 
 # --- setup fzf theme ---
 fg="#CBE0F0"

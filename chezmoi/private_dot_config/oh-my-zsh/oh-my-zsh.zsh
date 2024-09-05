@@ -16,11 +16,11 @@ source $ZPLUG_HOME/init.zsh
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 # oh-my-zsh plugins
 zplug plugins/git,   from:oh-my-zsh, defer:3
-zplug plugins/z,   from:oh-my-zsh
+zplug plugins/z,   from:oh-my-zsh, defer:3
 # defer means to load this plugin after all the other plugins
 zplug zdharma-continuum/fast-syntax-highlighting, defer:2
 # command auto-suggestion based on history
-zplug zsh-users/zsh-autosuggestions
+zplug zsh-users/zsh-autosuggestions, defer:3
 
 # let zplug manage itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
