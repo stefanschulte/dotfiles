@@ -1,0 +1,13 @@
+bat
+git-delta
+fd
+lf
+ripgrep
+
+
+
+env variable als indikator für devcontainer:
+REMOTE_CONTAINERS=true
+
+for github codespaces:
+CODESPACES=true

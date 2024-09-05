@@ -6,14 +6,14 @@ chezmoi managed dotfiles for these platforms:
 
 - macOS
 - WSL2
-- Linux amd64
+- Linux
 - Windows
 
 ## macOS
 
 ### Installation
 
-```bash
+```bash {"id":"01J71HR6TYNDB008RKTP5T162D"}
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 ```
 
@@ -28,7 +28,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 
 ### Installation
 
-```powershell
+```powershell {"id":"01J71HR6TYNDB008RKTSYZ441E"}
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
 chezmoi init --apply --verbose https://github.com/$GITHUB_USERNAME/dotfiles.git
 ```
