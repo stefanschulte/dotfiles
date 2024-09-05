@@ -1,0 +1,26 @@
+{{- if eq .chezmoi.os "windows" -}}
+
+# Self-elevate the script if required
+if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+  if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
+    $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+    Start-Process -Wait -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
+    Exit
+  }
+}
+
+# Set powershell execution policy to unrestricted
+# Lots of unsigned scripts will not be able to run otherwise
+$currentPolicy = Get-ExecutionPolicy
+if ($currentPolicy -ne 'Unrestricted') {
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
+}
+
+# Enable long path support in windows
+# The legacy 256 character limit for windows paths can be elevated somewhat (doesn't fix everything)
+$longPathsEnabled = Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled'
+if ($longPathsEnabled.LongPathsEnabled -ne 1) {
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
+}
+
+{{ end -}}

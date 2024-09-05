@@ -59,6 +59,14 @@ properties:
         id: Microsoft.PowerShell
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: OhMyPosh
+      directives:
+        description: Install powershell prompt git support
+        allowPrerelease: true
+      settings:
+        id: JanDeDobbeleer.OhMyPosh
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: WSL Ubuntu 24.04 LTS
       directives:
         description: Install Ubuntu 24.04 LTS

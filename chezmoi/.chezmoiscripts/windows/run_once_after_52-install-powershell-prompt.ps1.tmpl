@@ -1,0 +1,28 @@
+{{- if eq .chezmoi.os "windows" -}}
+# https://ohmyposh.dev/docs/faq
+# https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup
+
+# Install the Meslo nerd font
+oh-my-posh font install meslo
+
+# Set the theme
+$initLine = 'oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression'
+$initPrefix = 'oh-my-posh init'
+
+# Read the profile file content
+$profileContent = Get-Content -Path $PROFILE -Raw
+
+# Check if any line starts with "oh-my-posh init"
+if ($profileContent -match "^$initPrefix.*") {
+    # Replace the existing line with the new initLine
+    $profileContent = $profileContent -replace "^$initPrefix.*", $initLine
+    Set-Content -Path $PROFILE -Value $profileContent
+} else {
+    # Append the init line to the profile file if it doesn't already exist
+    Add-Content -Path $PROFILE -Value $initLine
+}
+
+# Reload the profile
+. $PROFILE
+
+{{ end -}}
