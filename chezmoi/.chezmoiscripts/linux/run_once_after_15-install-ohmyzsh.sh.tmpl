@@ -1,6 +1,16 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
+# Check if zsh is already installed
+if ! command -v zsh &> /dev/null; then
+  sudo apt install zsh -y --non-interactive
+fi
+
+# Change the default shell to zsh non-interactively if it isn't already zsh
+if [ "$SHELL" != "$(which zsh)" ]; then
+  sudo chsh -s $(which zsh) $USER
+fi
+
 # Check if oh-my-zsh is already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   # Install oh-my-zsh

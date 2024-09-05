@@ -1,6 +1,7 @@
 # List target files and directories only to be installed on macos systems
 {{- if ne .chezmoi.os "darwin" -}}
-Library/PreferencePanes/Cursorcerer.prefPane
+Library/
+Library/**
 
 .config/bartender
 .config/karabiner
