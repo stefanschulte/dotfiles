@@ -1,0 +1,7 @@
+# TODO: test with windows VM
+# TODO: reboot after successful first installation
+# TODO: enable long path support in windows
+# TODO: add wallpapers or keep anything that is even remotely big out? Just provide wallpaper zip that I include via chezmoi!!
+# TODO: windows dock and task bar customizations
+# TODO: install Meslo nerd font
+# TODO: add powershell prompt styling

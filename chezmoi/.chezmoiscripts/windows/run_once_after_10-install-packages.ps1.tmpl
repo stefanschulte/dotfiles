@@ -1,5 +1,14 @@
 {{- if eq .chezmoi.os "windows" -}}
 
+# Self-elevate the script if required
+if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+  if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
+    $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+    Start-Process -Wait -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
+    Exit
+  }
+}
+
 $hereString = @"
 # yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
 
@@ -305,7 +314,6 @@ $tempFile = New-TemporaryFile
 $hereString | Out-File -FilePath $tempFile -Encoding utf8
 
 # Run winget configure with the temporary file
-# TODO: needs to run with administrative privileges
 winget configure -f $tempFile --accept-configuration-agreements
 
 # Clean up the temporary file

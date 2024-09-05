@@ -3,9 +3,9 @@
 # TODO: make this idempotent
 # Setup env variables for Komorebi
 $komorebiConfigVarName = "KOMOREBI_CONFIG_HOME"
-$komorebiConfigVarValue = "C:\Users\stefa\.config\komorebi"
+$komorebiConfigVarValue = "$env:USERPROFILE\.config\komorebi"
 $whkdConfigVarName = "WHKD_CONFIG_HOME"
-$whkdConfigVarValue = "C:\Users\stefa\.config\whkd"
+$whkdConfigVarValue = "$env:USERPROFILE\.config\whkd"
 
 # Set the environment variable in the registry
 Set-ItemProperty -Path "HKCU:\Environment" -Name $komorebiConfigVarName -Value $komorebiConfigVarValue

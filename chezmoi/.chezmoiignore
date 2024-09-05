@@ -12,6 +12,7 @@ Library/PreferencePanes/Cursorcerer.prefPane
 {{- if ne .chezmoi.os "windows" -}}
 Appdata
 
+.local/share/fonts
 .config/komorebi
 .config/whkd
 {{ end -}}
