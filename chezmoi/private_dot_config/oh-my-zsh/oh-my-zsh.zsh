@@ -1,8 +1,5 @@
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-source $ZSH/oh-my-zsh.sh
 
 # Save completion cache files outside of the main home directory
 ZSH_COMPDUMP="$XDG_CACHE_HOME/.zcompdump"
@@ -10,13 +7,10 @@ ZSH_COMPDUMP="$XDG_CACHE_HOME/.zcompdump"
 # Add timestamps to history wrapper
 HIST_STAMPS="yyyy-mm-dd"
 
+source $ZSH/oh-my-zsh.sh
+
 export ZPLUG_HOME="$HOME/.zplug"
 source $ZPLUG_HOME/init.zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    zplug install
-fi
 
 # install powerlevel10k
 zplug "romkatv/powerlevel10k", as:theme, depth:1
@@ -30,6 +24,11 @@ zplug zsh-users/zsh-autosuggestions
 
 # let zplug manage itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    zplug install
+fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
