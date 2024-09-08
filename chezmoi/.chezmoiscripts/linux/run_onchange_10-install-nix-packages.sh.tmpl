@@ -1,0 +1,31 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+nix-env -iA \
+  nixpkgs.bat \
+  nixpkgs.fd \
+  nixpkgs.lf \
+  nixpkgs.ripgrep
+
+{{ if ne .is_devcontainer true -}}
+# Install additional packages
+nix-env -iA \
+  nixpkgs.git-filter-repo \
+  nixpkgs.git-lfs \
+  nixpkgs.git-sizer \
+  nixpkgs.glances \
+  nixpkgs.jq \
+  nixpkgs.mosh \
+  nixpkgs.ncdu \
+  nixpkgs.pre-commit \
+  nixpkgs.prettyping \
+  nixpkgs.testssl \
+  nixpkgs.tldr \
+  nixpkgs.wget \
+  nixpkgs.yq \
+  nixpkgs.azure-cli \
+  nixpkgs.fzf \
+  nixpkgs.gh
+{{ end -}}
+{{ end -}}

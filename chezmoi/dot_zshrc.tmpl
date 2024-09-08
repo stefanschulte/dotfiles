@@ -1,8 +1,3 @@
-# Set proper language locales
-#export LC_ALL=en_US.UTF-8
-#export LANG=en_US.UTF-8
-# TODO: check what the recommended locales to install are. And if they are missing on the OS, have to be installed via script
-
 # XDG Base Directory
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -52,8 +47,9 @@ for file in $HOME/.config/**/*.alias; do
     source "$file"
 done
 
+{{ if eq .chezmoi.os "linux" -}}
 source  $HOME/.nix-profile/etc/profile.d/nix.sh
+{{ end -}}
 
-# TODO: add /snap/bin for ubuntu to path
 # Add user home bin directory to Path
 export PATH="$HOME/.local/bin:$PATH"
