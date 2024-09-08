@@ -1,0 +1,2 @@
+# TODO: add a download function for users to be able to provide a zip with desktop wallpaper images. If the zip contains several images, allow to choose a folder and set rotation interval in OS. Also allow to use a single image and pin it.
+# TODO: add feature flags for non-essential stuff (like my macos things, or personal packages in windows, etc)

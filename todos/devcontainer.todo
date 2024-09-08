@@ -1,0 +1,1 @@
+#TODO: try to cut down on startup times for dotfiles intallation: check which script and package installation takes the longest (chezmoi debug flag for timing)

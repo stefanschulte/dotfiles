@@ -306,3 +306,6 @@ Temporary Items
 # homebrew
 Brewfile.lock.json
 Brewfile
+
+# chezmoi
+bin/chezmoi

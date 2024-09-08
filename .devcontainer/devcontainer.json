@@ -47,7 +47,8 @@
         "atlassian.atlascode",
         "dotenv.dotenv-vscode",
         "Gerrnperl.outline-map",
-        "ms-vscode.powershell"
+        "ms-vscode.powershell",
+        "ms-azuretools.vscode-docker"
       ]
     }
   }
