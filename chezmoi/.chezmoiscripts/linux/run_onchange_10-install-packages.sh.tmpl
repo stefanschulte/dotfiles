@@ -7,22 +7,24 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 
 # Install minimal package set
+	# TODO: git delta is not available via apt: https://dandavison.github.io/delta/installation.html
+  #delta \
 # Used in devcontainers, docker containers and codespaces
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	bat \
 	fd-find \
-	# TODO: git delta is not available via apt: https://dandavison.github.io/delta/installation.html
-  #delta \
   lf \
   ripgrep
 
 {{ if ne .is_devcontainer true -}}
 # Install additional packages
+  # TODO: chezmoi is not available via apt
+  #chezmoi
+  # TODO: git-sizer is not available via apt: https://github.com/github/git-sizer/releases
+	#git-sizer \
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	git-filter-repo \
 	git-lfs \
-  # TODO: git-sizer is not available via apt: https://github.com/github/git-sizer/releases
-	#git-sizer \
 	glances \
 	jq \
 	mosh \
@@ -36,8 +38,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
   azure-cli \
 	fzf \
 	gh \
-	git \
-  # TODO: chezmoi is not available via apt
-  #chezmoi
+	git
 {{ end -}}
 {{ end -}}
