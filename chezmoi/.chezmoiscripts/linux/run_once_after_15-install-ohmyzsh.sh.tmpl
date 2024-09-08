@@ -6,10 +6,12 @@ if ! command -v zsh &> /dev/null; then
   sudo DEBIAN_FRONTEND=noninteractive apt-get -y install zsh
 fi
 
+{{ if ne .is_devcontainer true -}}
 # Change the default shell to zsh non-interactively if it isn't already zsh
 if [ "$SHELL" != "$(which zsh)" ]; then
   chsh -s $(which zsh) $USER
 fi
+{{ end -}}
 
 # Check if oh-my-zsh is already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
