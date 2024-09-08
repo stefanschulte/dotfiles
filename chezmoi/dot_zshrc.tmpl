@@ -51,6 +51,9 @@ done
 for file in $HOME/.config/**/*.alias; do
     source "$file"
 done
+
+source  $HOME/.nix-profile/etc/profile.d/nix.sh
+
 # TODO: add /snap/bin for ubuntu to path
 # Add user home bin directory to Path
 export PATH="$HOME/.local/bin:$PATH"
