@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+if ! command -v nix &> /dev/null; then
+  echo "Nix is not installed. Installing Nix..."
+  sh <(curl -L https://nixos.org/nix/install) --no-daemon
+else
+  echo "Nix is already installed."
+fi
+
+{{ end -}}
