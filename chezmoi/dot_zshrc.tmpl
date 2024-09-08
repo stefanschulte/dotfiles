@@ -1,7 +1,6 @@
-# set proper language locales
+# Set proper language locales
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
 # TODO: check what the recommended locales to install are. And if they are missing on the OS, have to be installed via script
 
 # XDG Base Directory
@@ -19,6 +18,7 @@ fi
 export VISUAL='code'
 
 # Custom root cert handling
+# TODO: make this a template since the paths will be different per OS
 # Make sure ruby apps use global trust store
 #export SSL_CERT_FILE="/etc/ssl/cert.pem"
 # Make sure curl uses global trust store
@@ -28,7 +28,8 @@ export VISUAL='code'
 # Make sure python apps use global trust store
 #export REQUESTS_CA_BUNDLE="/etc/ssl/cert.pem"
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt.
+# Position: Should stay close to the top of ~/.zshrc, nothing with runtime before this.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -36,7 +37,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 {{ if eq .chezmoi.os "darwin" -}}
-# Initialize homebrew
+# Initialize homebrew env, updating path, etc
+# Position: before sourcing zsh files, since some apps depend on installed homebrew apps
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}
 
@@ -49,6 +51,6 @@ done
 for file in $HOME/.config/**/*.alias; do
     source "$file"
 done
-
+# TODO: add /snap/bin for ubuntu to path
 # Add user home bin directory to Path
 export PATH="$HOME/.local/bin:$PATH"

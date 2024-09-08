@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/universal:latest
+FROM mcr.microsoft.com/devcontainers/base:latest
 
 ENV LANG=C.UTF-8
 

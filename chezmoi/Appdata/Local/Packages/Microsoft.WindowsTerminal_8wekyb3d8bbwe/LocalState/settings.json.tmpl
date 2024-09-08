@@ -124,6 +124,7 @@
   ],
   "alwaysOnTop": false,
   "alwaysShowTabs": true,
+  "useAcrylicInTabRow": true,
   "copyFormatting": "none",
   "copyOnSelect": true,
   "defaultProfile": "{acbafd15-cbbb-5bb3-8a61-bed446ff4b83}",
@@ -134,7 +135,7 @@
   ],
   "profiles": {
     "defaults": {
-      "opacity": 84,
+      "opacity": 75,
       "useAcrylic": true,
       "bellStyle": "none",
       "colorScheme": "Snazzy",
@@ -146,19 +147,14 @@
     },
     "list": [
       {
+        "guid": "{acbafd15-cbbb-5bb3-8a61-bed446ff4b83}",
+        "name": "Ubuntu",
+        "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
+      },
+      {
         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-        "name": "PowerShell 7",
+        "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore"
-      },
-      {
-        "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell_ise.exe",
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "name": "PowerShell ISE"
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "name": "Azure Cloud Shell",
-        "source": "Windows.Terminal.Azure"
       },
       {
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -168,13 +164,18 @@
         "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
         "guid": "{7d8fe562-211a-4d79-ac21-1aff324353b5}",
         "icon": "ms-appx:///ProfileIcons/pwsh.png",
-        "name": "PowerShell 5",
+        "name": "PowerShell legacy",
         "startingDirectory": "%USERPROFILE%"
       },
       {
-        "guid": "{acbafd15-cbbb-5bb3-8a61-bed446ff4b83}",
-        "name": "Ubuntu",
-        "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
+        "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell_ise.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "PowerShell legacy ISE"
       },
       {
         "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
@@ -439,7 +440,6 @@
       "yellow": "#808000"
     }
   ],
-  "themes": [],
-  "useAcrylicInTabRow": true
+  "themes": []
 }
 {{ end -}}

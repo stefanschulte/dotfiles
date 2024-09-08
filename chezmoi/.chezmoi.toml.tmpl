@@ -1,0 +1,58 @@
+{{- $chezmoiForce := or (has "--force" .chezmoi.args) (has "--force=true" .chezmoi.args) -}}
+{{- $interactive := and stdinIsATTY (not $chezmoiForce) -}}
+
+{{- $wsl := or (env "WSL_DISTRO_NAME") (env "IS_WSL") | not | not -}}
+{{- $devcontainer := or (env "REMOTE_CONTAINERS") (env "CODESPACES") (env "VSCODE_REMOTE_CONTAINERS_SESSION") (env "GITPOD_HOST") | not | not -}}
+{{- $headless := or (env "SSH_CLIENT" | not | not) (not (or (env "DISPLAY") (env "WAYLAND_DISPLAY"))) -}}
+
+{{- $company_device := false }}
+{{- $personal_device := false }}
+{{- $personal_device_used_work := false }}
+
+{{- if $interactive -}}
+{{-   range $i := until 99 -}}
+{{-     $question := "❔ Is this a company owned device" -}}
+{{-     $answer := "" -}}
+{{-     $choices := list "Y" "N" -}}
+{{-     $answer := promptChoice $question $choices -}}
+{{-     if eq $answer "Y" -}}
+{{-       $company_device = true -}}
+{{-       writeToStdout (printf "✅ Device is set up as a company owned device") -}}
+{{-       break -}}
+{{-     else if eq $answer "N" -}}
+{{-       range $i := until 99 -}}
+{{-         $question := "❔ Will this personal device be used for company work" -}}
+{{-         $answer := "" -}}
+{{-         $choices := list "Y" "N" -}}
+{{-         $answer := promptChoice $question $choices -}}
+{{-         if eq $answer "Y" -}}
+{{-           $personal_device_used_work = true -}}
+{{-           writeToStdout (printf "✅ Device is set up as a personal device that is also being used for work") -}}
+{{-           break -}}
+{{-         else if eq $answer "N" -}}
+{{-           $personal_device = true -}}
+{{-           writeToStdout (printf "✅ Device is set up as a personal device") -}}
+{{-           break -}}
+{{-         end -}}
+{{-       end -}}
+{{-       break -}}
+{{-     end -}}
+{{-     if eq $i 98 -}}
+{{-       writeToStdout "❌ ERROR: maximum tries exceeded\n" -}}
+{{-       exit 1 -}}
+{{-     end -}}
+{{-   end -}}
+{{- end -}}
+
+{{- if $interactive -}}
+{{-   writeToStdout "\n💡 Tip: you can always make chezmoi ask this again by running `chezmoi init` without `--force`.\n" -}}
+{{-   writeToStdout "\nYour choices are persisted on this machine at ~/.config/chezmoi/chezmoi.toml\n" -}}
+{{- end -}}
+
+{{/* Here we "export" the variables, so we can access them outside this file */ -}}
+[data]
+    is_company_device = {{- $company_device }}
+    is_personal_device = {{- $personal_device }}
+    is_personal_device_used_work = {{- $personal_device_used_work }}
+    is_wsl= {{- $wsl }}
+    is_devcontainer= {{- $devcontainer }}

@@ -1,7 +1,7 @@
 {
   "files.associations": {
       "*.alias": "shellscript",
-      "*.toml.tmpl": "ini",
+      "*.toml.tmpl": "toml",
       "*.json.tmpl": "json",
       "*.yml.tmpl": "yaml",
       "*.yaml.tmpl": "yaml",

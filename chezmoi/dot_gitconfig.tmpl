@@ -1,7 +1,9 @@
 [user]
-    name = Stefan Schulte
-    email = github@stefanschulte.dev
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R
+    name = {{ .git.name | quote }}
+    email = {{ .git.email | quote }}
+    {{ if (and (eq .git.sshsigning.enabled true) (ne .is_devcontainer true)) -}}
+    signingkey = {{ .git.sshsigning.signingkey | quote }}
+    {{- end }}
 [color]
     ui = true
 [core]
@@ -33,10 +35,16 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+{{- if (and (eq .git.sshsigning.enabled true) (ne .is_devcontainer true)) }}
 [commit]
   gpgsign = true
 [gpg]
   format = ssh
 [gpg "ssh"]
+  {{ if eq .chezmoi.os "darwin" -}}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  {{- else if eq .chezmoi.os "windows" -}}
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  {{ end }}
   allowedSignersFile = "$HOME/.ssh/allowed_signers"
+{{ end -}}

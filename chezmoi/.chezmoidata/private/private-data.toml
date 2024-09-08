@@ -1,0 +1,7 @@
+[git]
+    name = "Stefan Schulte"
+    email = "github@stefanschulte.dev"
+
+[git.sshsigning]
+    enabled = true
+    signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R"
