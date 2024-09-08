@@ -5,20 +5,24 @@
 sudo DEBIAN_FRONTEND=noninteractive apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
+
 # Install minimal package set
 # Used in devcontainers, docker containers and codespaces
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	bat \
 	fd-find \
-	delta \
+	# TODO: git delta is not available via apt: https://dandavison.github.io/delta/installation.html
+  #delta \
   lf \
   ripgrep
 
+{{ if ne .is_devcontainer true -}}
 # Install additional packages
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	git-filter-repo \
 	git-lfs \
-	git-sizer \
+  # TODO: git-sizer is not available via apt: https://github.com/github/git-sizer/releases
+	#git-sizer \
 	glances \
 	jq \
 	mosh \
@@ -33,5 +37,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 	fzf \
 	gh \
 	git \
-  chezmoi
+  # TODO: chezmoi is not available via apt
+  #chezmoi
+{{ end -}}
 {{ end -}}
