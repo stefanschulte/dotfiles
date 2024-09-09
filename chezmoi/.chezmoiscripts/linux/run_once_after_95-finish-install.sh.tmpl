@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+# Source the whole environment for first load
+source $HOME/.zshrc
+
+{{ end -}}
