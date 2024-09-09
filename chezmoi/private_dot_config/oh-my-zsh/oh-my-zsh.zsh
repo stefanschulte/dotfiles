@@ -24,6 +24,7 @@ zplug zsh-users/zsh-autosuggestions, defer:3
 
 # let zplug manage itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'zplug/zplug', hook-build:'zplug install'
 
 # Install plugins if there are plugins that have not been installed
 #if ! zplug check --verbose; then
