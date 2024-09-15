@@ -7,4 +7,4 @@
     signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R"
 
 [ssh]
-    default-username = "schultes"
+    default_username = "schultes"

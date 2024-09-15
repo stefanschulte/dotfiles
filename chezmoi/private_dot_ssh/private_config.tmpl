@@ -3,7 +3,7 @@ Host pihole
         User pi
 # TODO: add map for ssh host keys for ssh-hosts.yml
 Host *
-        User {{ .ssh.default-username }}
+        User {{ .ssh.default_username }}
         ServerAliveInterval 30
 	      ForwardAgent yes
         {{ if eq .chezmoi.os "darwin" -}}
