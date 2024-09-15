@@ -1,0 +1,3 @@
+{{ if eq .git.sshsigning.enabled true -}}
+{{ .git.email }} {{ .git.sshsigning.signingkey }}
+{{ end }}

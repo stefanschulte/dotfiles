@@ -1,3 +1,0 @@
-{{ if eq .data.sshsigning.enabled true -}}
-{{ .data.email }} {{ .data.sshsigning.signingkey }}
-{{ end }}

@@ -3,7 +3,9 @@ Host pihole
         User pi
 # TODO: add map for ssh host keys for ssh-hosts.yml
 Host *
-        User schultes
+        User {{ .ssh.default-username }}
         ServerAliveInterval 30
 	      ForwardAgent yes
+        {{ if eq .chezmoi.os "darwin" -}}
         IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+        {{ end -}}
