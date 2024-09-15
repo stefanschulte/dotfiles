@@ -270,39 +270,6 @@ Temporary Items
 .history
 .ionide
 
-# Support for Project snippet scope
-
-# End of https://www.toptal.com/developers/gitignore/api/java,eclipse,intellij,visualstudiocode,maven,osx
-
-# Viega specific section
-# ignore generated files from frontend import
-/ui.apps/src/main/content/jcr_root/apps/viega-us/clientlibs/clientlib-site/
-/ui.apps/src/main/content/jcr_root/apps/viega-us/clientlibs/clientlib-dependencies/
-
-# Ignore intellij project settings except runconfigurations
-/.idea/*
-!/.idea/runConfigurations
-
-# Solr docker configuration
-/docker/solr/*/conf/_schema_analysis_stopwords_managedStopwords.json
-/docker/solr/*/conf/_schema_analysis_synonyms_managedSynonyms.json
-/docker/solr/*/data/
-
-# ignore Adobe IO config
-.aio
-
-# ignore 1password config
-.op
-
-# ignore jars for OSGi
-/core/*.jar
-
-# dispatcher SDK
-/dispatcher/bin/
-/dispatcher/docs/
-/dispatcher/lib/
-/dispatcher/out/
-
 # homebrew
 Brewfile.lock.json
 Brewfile

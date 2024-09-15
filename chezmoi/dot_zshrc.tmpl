@@ -1,4 +1,4 @@
-# XDG Base Directory
+# XDG Base Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -35,7 +35,7 @@ fi
 # Initialize homebrew env, updating path, etc
 # Position: before sourcing zsh files, since some apps depend on installed homebrew apps
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{ end -}}
+{{ end }}
 
 # Source all feature zsh definitions
 for file in $HOME/.config/**/*.zsh; do
@@ -48,6 +48,8 @@ for file in $HOME/.config/**/*.alias; do
 done
 
 {{ if eq .chezmoi.os "linux" -}}
+# Make sure nix env is available
+# TODO: This seems to clash with nix-env installations when nix gets installed as part of a devcontainer
 source  $HOME/.nix-profile/etc/profile.d/nix.sh
 {{ end -}}
 

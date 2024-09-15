@@ -1,3 +1,1 @@
 # TODO: add a safeguard for supported operating systems
-# TODO: add support for downloading github releases directly (either binary or sources)
-# TODO: add a more reliable package management that is easy to extend for endusers (package.yml in data with all required inputs)
