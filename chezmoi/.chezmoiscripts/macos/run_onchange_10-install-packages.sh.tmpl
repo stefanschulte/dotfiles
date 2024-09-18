@@ -3,7 +3,7 @@
 
 # For forcing homebrew to replace existing applications that were installed manually, add "--force" to the brew bundle command
 # For uninstalling applications that aren't part of this bundle definition, add "--cleanup" to the brew bundle command
-brew bundle --no-lock --no-upgrade --file=/dev/stdin <<EOF
+brew bundle --no-lock --no-upgrade --cleanup --file=/dev/stdin <<EOF
 
 cask_args appdir: '/Applications'
 
@@ -57,7 +57,6 @@ cask "intune-company-portal"                # Microsoft Intune Company Portal - 
 cask "iterm2"                               # iTerm2 terminal emulator - https://iterm2.com/
 cask "jellyfin-media-player"                # Media player for jellyfin servers - https://github.com/jellyfin/jellyfin-media-player
 cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
-cask "linearmouse"                          # Disabling mouse acceleration for macOS
 cask "microsoft-azure-storage-explorer"     # Microsoft Azure Storage Explorer - https://azure.microsoft.com/en-us/features/storage-explorer/
 cask "microsoft-edge"                       # Microsoft Edge browser - https://www.microsoft.com/en-us/edge
 cask "microsoft-teams"                      # Microsoft Teams - https://www.microsoft.com/en-us/microsoft-teams/download-app
@@ -67,6 +66,7 @@ cask "onedrive"                             # Microsoft OneDrive - https://www.m
 cask "proton-mail"                          # ProtonMail mail client - https://protonmail.com/
 cask "sensiblesidebuttons"                  # Adds Windows-like mouse side button functionality to macOS, https://sensible-side-buttons.archagon.net/
 cask "signal"                               # Signal messenger - https://signal.org/
+cask "spacelauncher"                        # macOS app launcher - https://spacelauncher.app/
 cask "spotify"                              # Spotify music client - https://www.spotify.com/
 cask "steam"                                # Steam game client - https://store.steampowered.com/
 cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
