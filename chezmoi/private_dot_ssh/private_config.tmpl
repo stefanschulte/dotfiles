@@ -6,6 +6,3 @@ Host *
         User {{ .ssh.default_username }}
         ServerAliveInterval 30
 	      ForwardAgent yes
-        {{ if eq .chezmoi.os "darwin" -}}
-        IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-        {{ end -}}
