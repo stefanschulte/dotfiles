@@ -9,7 +9,7 @@ chezmoi managed dotfiles for these platforms:
 - Linux
 - Windows
 
-## macOS
+## macOS and Linux
 
 ### Installation
 
@@ -19,6 +19,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply stefanschulte
 
 ### Manual steps required
 
+- Enable the 1password ssh agent
 - PRA Access console - Access console needs to be manually downloaded from access.viega.com/login since it's console specific download.
 - zscaler download if Viega device
 
@@ -26,17 +27,25 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply stefanschulte
 
 ### Installation
 
+Start with opening a powershell terminal and run the below commands:
+(the first command executes the script to install the chezmoi binary, the second command download and applies your dotfiles)
+
 ```powershell {"id":"01J71HR6TYNDB008RKTSYZ441E"}
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
 chezmoi init --apply --verbose https://github.com/stefanschulte/dotfiles.git
 ```
 
-### Manual steps required
+After finishing the Windows application installations, we need to setup the 1password ssh agent integration:
+While documentation for this step is currently out-of-scope of this readme, the only thing you should be required to do is enabling the ssh agent integration in the 1password settings, without having to change any of your files (dotfiles will do that for you anyways).
+
+After having activated 1password ssh agent, now start the newly installed "Ubuntu" app, this will open a terminal and guide you through the initial setup of a barebone Ubuntu WSL environment.
+After having created your user and password, run the command (from inside the Ubuntu WSL shell) listed under "macOS and Linux" in this readme to bootstrap the Ubuntu WSL environment.
+
+### Post installation manual steps required
 
 - PRA Access console - Access console needs to be manually downloaded from access.viega.com/login since it's console specific download.
-- zscaler download if Viega device
+- zscaler download if private device is used for work
 - Maybe: make windows terminal the default terminal
-- Import viega pki certs
 
 ## License
 
