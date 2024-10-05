@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env zsh
+
+# Copy Viega root certs and update Ubuntu trust store
+sudo cp .certs/* /usr/local/share/ca-certificates
+sudo update-ca-certificates
+
+{{ end -}}
