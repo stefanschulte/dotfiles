@@ -1,8 +1,10 @@
 # fzf configuration
 
+{{- if eq .is_wsl true -}}
 # Set up fzf key bindings and fuzzy completion
 # TODO: fix fzf configs, this throws unknown option within devcontainers
 #eval "$(fzf --zsh)"
+{{ end -}}
 
 # --- setup fzf theme ---
 fg="#CBE0F0"
