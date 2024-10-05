@@ -1,4 +1,5 @@
-# TODO: WSL installation
+# TODO: Configure /etc/wsl.conf with best practices
+- [ ] Configure wslconfig with best practices
 # TODO: zsh cert paths template
 # TODO: test in a fresh Windows 11 VM
 # TODO: add docs for remaining manual steps (like 1password settings, etc)

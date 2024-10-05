@@ -1,6 +1,7 @@
 # General todos
 
 - [ ] Add viega pki certs
+- [ ] Clean up the chezmoi binary (bin/chezmoi) when having used the bootstrap install option
 - [ ] Allow for company and private input data (currently there is only global data)
 - [ ] Change license? copyme?
 - [ ] Find a way to do the initial zplug plugins install in the background before first terminal open
