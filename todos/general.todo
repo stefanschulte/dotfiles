@@ -1,5 +1,9 @@
-# TODO: add viega pki certs
-# TODO: add feature flags for non-essential stuff (like my macos things, or personal packages in windows, etc)
-# TODO: find a way to do the initial zplug plugins install in the background before first terminal open
+# General todos
 
-# TODO: add a download function for users to be able to provide a zip with desktop wallpaper images. If the zip contains several images, allow to choose a folder and set rotation interval in OS. Also allow to use a single image and pin it.
+- [ ] Add viega pki certs
+- [ ] Allow for company and private input data (currently there is only global data)
+- [ ] Change license? copyme?
+- [ ] Find a way to do the initial zplug plugins install in the background before first terminal open
+- [ ] Add a download function for users to be able to provide a zip with desktop wallpaper images. If the zip contains several images, allow to choose a folder and set rotation interval in OS. Also allow to use a single image and pin it.
+- [ ] Support for custom (nerd optimized) fonts through all OSes, with the ability to quickly set it in his data
+- [ ] On private devices that are used for company work, allow for both git credentials to live next to another and automatic switching in git. Allow for the user to choose a folder name for his sources in his home directory and split up gitconfigs for private and company work in subfolders. Consider all-my-repos use case of multiple github accounts when deciding on folder structure.

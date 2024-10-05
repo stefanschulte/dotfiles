@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.os "windows" -}}
 # XDG Base Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -55,3 +56,4 @@ source  $HOME/.nix-profile/etc/profile.d/nix.sh
 
 # Add user home bin directory to Path
 export PATH="$HOME/.local/bin:$PATH"
+{{ end }}

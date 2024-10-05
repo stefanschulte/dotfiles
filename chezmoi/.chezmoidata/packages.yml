@@ -1,0 +1,182 @@
+---
+packages:
+  # Applications for Microsoft Windows OS
+  windows:
+    # Applications that don't come pre-installed on any device type, and will always be installed on any device type.
+    # Installed on:
+    # - company owned device: YES
+    # - private device used for work: YES
+    # - private device: YES
+    generic:
+      - id: Git
+        description: Install Git
+        store_id: Git.Git
+        source: winget
+        allowPrerelease: false
+      - id: Powershell
+        description: Install up-to-date Powershell version
+        store_id: Microsoft.PowerShell
+        source: winget
+        allowPrerelease: false
+      - id: OhMyPosh
+        description: Install powershell prompt git support
+        store_id: JanDeDobbeleer.OhMyPosh
+        source: winget
+        allowPrerelease: false
+      - id: WSL Ubuntu 24.04 LTS
+        description: Install Ubuntu 24.04 LTS
+        store_id: 9NZ3KLHXDJP5
+        source: msstore
+        allowPrerelease: false
+      - id: Visual Studio Code
+        description: Install Visual Studio Code
+        store_id: Microsoft.VisualStudioCode
+        source: winget
+        allowPrerelease: false
+      - id: Docker for Desktop
+        description: Install Docker for Desktop
+        store_id: Docker.DockerDesktop
+        source: winget
+        allowPrerelease: false
+      - id: MS Terminal
+        description: Install MS Terminal
+        store_id: Microsoft.WindowsTerminal
+        source: winget
+        allowPrerelease: false
+      - id: MS PowerToys
+        description: Install PowerToys
+        store_id: Microsoft.PowerToys
+        source: winget
+        allowPrerelease: false
+      - id: 1password Client
+        description: Install 1password client
+        store_id: AgileBits.1Password
+        source: winget
+        allowPrerelease: false
+      - id: 1password CLI
+        description: Install 1password CLI
+        store_id: AgileBits.1Password.CLI
+        source: winget
+        allowPrerelease: false
+      - id: Git LFS
+        description: Install Git LFS
+        store_id: GitHub.GitLFS
+        source: winget
+        allowPrerelease: false
+      - id: GitHub CLI
+        description: Install GitHub CLI
+        store_id: GitHub.cli
+        source: winget
+        allowPrerelease: false
+      - id: Slack
+        description: Install Slack
+        store_id: SlackTechnologies.Slack
+        source: winget
+        allowPrerelease: false
+      - id: Spotify
+        description: Install Spotify
+        store_id: Spotify.Spotify
+        source: winget
+        allowPrerelease: false
+      - id: Wireshark
+        description: Install Wireshark
+        store_id: WiresharkFoundation.Wireshark
+        source: winget
+        allowPrerelease: false
+      - id: Bruno
+        description: Install Bruno API client
+        store_id: Bruno.Bruno
+        source: winget
+        allowPrerelease: false
+      - id: Firefox Dev Edition
+        description: Install Firefox Developer Edition
+        store_id: Mozilla.Firefox.DeveloperEdition
+        source: winget
+        allowPrerelease: false
+    # Work applications that are pre-installed on company owned devices, but have to be installed on private devices used for work.
+    # Installed on:
+    # - company owned device: NO
+    # - private device used for work: YES
+    # - private device: NO
+    company_extended:
+      - id: MS Company Portal
+        description: Install MS Company Portal
+        store_id: 9WZDNCRFJ3PZ
+        source: msstore
+        allowPrerelease: false
+      - id: MS Teams
+        description: Install MS Teams
+        store_id: Microsoft.Teams
+        source: winget
+        allowPrerelease: false
+      - id: MS Office
+        description: Install MS Office Enterprise
+        store_id: Microsoft.Office
+        source: winget
+        allowPrerelease: false
+      - id: MS OneDrive
+        description: Install MS OneDrive
+        store_id: Microsoft.OneDrive
+        source: winget
+        allowPrerelease: false
+      - id: MS Storage Explorer
+        description: Install MS Azure Storage Explorer
+        store_id: Microsoft.Azure.StorageExplorer
+        source: winget
+        allowPrerelease: false
+      - id: Microsoft Edge
+        description: Install Microsoft Edge
+        store_id: Microsoft.Edge
+        source: winget
+        allowPrerelease: false
+    # Private applications that are NOT installed on company owned devices, but will be installed on private devices, and private devices used for work.
+    # Installed on:
+    # - company owned device: NO
+    # - private device used for work: YES
+    # - private device: YES
+    private:
+      - id: Brave browser
+        description: Install Brave browser
+        store_id: Brave.Brave
+        source: winget
+        allowPrerelease: false
+      - id: Obsidian
+        description: Install Obsidian
+        store_id: Obsidian.Obsidian
+        source: winget
+        allowPrerelease: false
+      - id: Discord
+        description: Install Discord
+        store_id: Discord.Discord
+        source: winget
+        allowPrerelease: false
+      - id: VLC
+        description: Install VLC
+        store_id: VideoLAN.VLC
+        source: winget
+        allowPrerelease: false
+      - id: Jellyfin player
+        description: Install Jellyfin player
+        store_id: Jellyfin.JellyfinMediaPlayer
+        source: winget
+        allowPrerelease: false
+      - id: Komorebi
+        description: Install Komorebi - tiling window manager for Windows
+        store_id: LGUG2Z.komorebi
+        source: winget
+        allowPrerelease: false
+      - id: WHKD
+        description: Install WHKD - windows hotkey daemon
+        store_id: LGUG2Z.whkd
+        source: winget
+        allowPrerelease: false
+      - id: Snagit 2022
+        description: Install Snagit2022 snipping tool
+        store_id: TechSmith.Snagit.2022
+        source: winget
+        allowPrerelease: false
+      - id: Steam
+        description: Install Steam
+        store_id: Valve.Steam
+        source: winget
+        allowPrerelease: false

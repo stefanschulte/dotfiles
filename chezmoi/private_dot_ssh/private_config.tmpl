@@ -1,7 +1,3 @@
-Host pihole
-        HostName 192.168.1.147
-        User pi
-# TODO: add map for ssh host keys for ssh-hosts.yml
 Host *
         User {{ .ssh.default_username }}
         ServerAliveInterval 30

@@ -2,16 +2,30 @@
 # https://ohmyposh.dev/docs/faq
 # https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup
 
-# Install the Meslo nerd font
-# TODO: check if fonts are already installed
-oh-my-posh font install meslo
+# Function to check if the font is already installed
+function Test-FontInstalled {
+    param (
+        [string]$FontName
+    )
+    $fonts = (New-Object -ComObject Shell.Application).Namespace(0x14).Items()
+    foreach ($font in $fonts) {
+        if ($font.Name -like "*$FontName*") {
+            return $true
+        }
+    }
+    return $false
+}
 
+# Install Meslo Nerd Font
+if (-not (Test-FontInstalled -FontName "MesloLGS Nerd Font")) {
+    oh-my-posh font install meslo
+}
+# TODO: use oh-my-posh config file instead?
 # Set the theme
 $initLine = 'oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression'
 $initPrefix = 'oh-my-posh init'
 
 # Define profile paths for Windows PowerShell and PowerShell Core
-# TODO: this throws an error about outdated powershell version
 $profiles = @($PROFILE, "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1")
 
 foreach ($profile in $profiles) {
@@ -32,8 +46,5 @@ foreach ($profile in $profiles) {
         Add-Content -Path $profile -Value $initLine
     }
 }
-
-# Reload the profile
-. $PROFILE
 
 {{ end -}}

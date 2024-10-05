@@ -1,3 +1,5 @@
-# TODO: stabilize windows and wsl installation!!
-# TODO: test with windows VM
+# TODO: WSL installation
+# TODO: zsh cert paths template
+# TODO: test in a fresh Windows 11 VM
+# TODO: add docs for remaining manual steps (like 1password settings, etc)
 # TODO: windows dock and task bar customizations

@@ -1,4 +1,4 @@
-{{- if eq .chezmoi.os "windows" -}}
+{{- if (and (eq .feature.komorebi.enabled true) (eq .chezmoi.os "windows")) }}
 
 # TODO: make this idempotent
 # Setup env variables for Komorebi

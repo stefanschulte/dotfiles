@@ -39,272 +39,45 @@ properties:
         # Use caution when setting `RestartExplorer: true` as this will force explorer to close.
         RestartExplorer: true # Required to apply changes
 
+    # Install generic packages
+    {{ range .packages.windows.generic -}}
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: {{ .id | quote }}
+      directives:
+        description:  {{ .description | quote }}
+        allowPrerelease: {{ .allowPrerelease | quote }}
+      settings:
+        id: {{ .store_id | quote }}
+        source: {{ .source | quote }}
+    {{ end }}
 
+    {{ if eq .is_personal_device_used_work true -}}
+    # Install extended company packages (non company-provided device which is missing preinstalled company software) on your private device used for work
+    {{ range .packages.windows.company_extended -}}
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: {{ .id | quote }}
+      directives:
+        description:  {{ .description | quote }}
+        allowPrerelease: {{ .allowPrerelease | quote }}
+      settings:
+        id: {{ .store_id | quote }}
+        source: {{ .source | quote }}
+    {{ end }}
+    {{ end }}
 
-    # Installing packages
+    {{ if (or (eq .is_personal_device true) (eq .is_personal_device_used_work true)) -}}
+    # Install private packages
+    {{ range .packages.windows.private -}}
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Git
+      id: {{ .id | quote }}
       directives:
-        description: Install Git
-        allowPrerelease: true
+        description:  {{ .description | quote }}
+        allowPrerelease: {{ .allowPrerelease | quote }}
       settings:
-        id: Git.Git
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Powershell
-      directives:
-        description: Install up-to-date Powershell version
-        allowPrerelease: true
-      settings:
-        id: Microsoft.PowerShell
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: OhMyPosh
-      directives:
-        description: Install powershell prompt git support
-        allowPrerelease: true
-      settings:
-        id: JanDeDobbeleer.OhMyPosh
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: WSL Ubuntu 24.04 LTS
-      directives:
-        description: Install Ubuntu 24.04 LTS
-        allowPrerelease: true
-      settings:
-        id: 9NZ3KLHXDJP5
-        source: msstore
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Visual Studio Code
-      directives:
-        description: Install Visual Studio Code
-        allowPrerelease: true
-      settings:
-        id: Microsoft.VisualStudioCode
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Docker for Desktop
-      directives:
-        description: Install Docker for Desktop
-        allowPrerelease: true
-      settings:
-        id: Docker.DockerDesktop
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS Terminal
-      directives:
-        description: Install MS Terminal
-        allowPrerelease: true
-      settings:
-        id: Microsoft.WindowsTerminal
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS PowerToys
-      directives:
-        description: Install PowerToys
-        allowPrerelease: true
-      settings:
-        id: Microsoft.PowerToys
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: 1password Client
-      directives:
-        description: Install 1password client
-        allowPrerelease: true
-      settings:
-        id: AgileBits.1Password
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: 1password CLI
-      directives:
-        description: Install 1password CLI
-        allowPrerelease: true
-      settings:
-        id: AgileBits.1Password.CLI
-        source: winget
-
-
-
-
-    # Non-work provided machine
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS Company Portal
-      directives:
-        description: Install MS Company Portal
-        allowPrerelease: true
-      settings:
-        id: 9WZDNCRFJ3PZ
-        source: msstore
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS Teams
-      directives:
-        description: Install MS Teams
-        allowPrerelease: true
-      settings:
-        id:  Microsoft.Teams
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS Office
-      directives:
-        description: Install MS Office Enterprise
-        allowPrerelease: true
-      settings:
-        id:  Microsoft.Office
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS OneDrive
-      directives:
-        description: Install MS OneDrive
-        allowPrerelease: true
-      settings:
-        id:  Microsoft.OneDrive
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Git LFS
-      directives:
-        description: Install Git LFS
-        allowPrerelease: true
-      settings:
-        id:  GitHub.GitLFS
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: GitHub CLI
-      directives:
-        description: Install GitHub CLI
-        allowPrerelease: true
-      settings:
-        id:  GitHub.cli
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS Storage Explorer
-      directives:
-        description: Install MS Azure Storage Explorer
-        allowPrerelease: true
-      settings:
-        id:  Microsoft.Azure.StorageExplorer
-        source: winget
-
-    # Installing personal packages
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Brave browser
-      directives:
-        description: Install Brave browser
-        allowPrerelease: true
-      settings:
-        id: Brave.Brave
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Obsidian
-      directives:
-        description: Install Obsidian
-        allowPrerelease: true
-      settings:
-        id: Obsidian.Obsidian
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Discord
-      directives:
-        description: Install Discord
-        allowPrerelease: true
-      settings:
-        id: Discord.Discord
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Slack
-      directives:
-        description: Install Slack
-        allowPrerelease: true
-      settings:
-        id: SlackTechnologies.Slack
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Spotify
-      directives:
-        description: Install Spotify
-        allowPrerelease: true
-      settings:
-        id: Spotify.Spotify
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Steam
-      directives:
-        description: Install Steam
-        allowPrerelease: true
-      settings:
-        id:  Valve.Steam
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Firefox Dev Edition
-      directives:
-        description: Install Firefox Developer Edition
-        allowPrerelease: true
-      settings:
-        id:  Mozilla.Firefox.DeveloperEdition
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: MS Edge browser
-      directives:
-        description: Install Microsoft Edge browser
-        allowPrerelease: true
-      settings:
-        id:  Microsoft.Edge
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Jellyfin player
-      directives:
-        description: Install Jellyfin player
-        allowPrerelease: true
-      settings:
-        id:  Jellyfin.JellyfinMediaPlayer
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Bruno
-      directives:
-        description: Install Bruno API client
-        allowPrerelease: true
-      settings:
-        id:  Bruno.Bruno
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Komorebi
-      directives:
-        description: Install Komorebi - tiling window manager for Windows
-        allowPrerelease: true
-      settings:
-        id:  LGUG2Z.komorebi
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: WHKD
-      directives:
-        description: Install WHKD - windows hotkey daemon
-        allowPrerelease: true
-      settings:
-        id:  LGUG2Z.whkd
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Snagit 2022
-      directives:
-        description: Install Snagit2022 snipping tool
-        allowPrerelease: true
-      settings:
-        id:  TechSmith.Snagit.2022
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: VLC
-      directives:
-        description: Install VLC media player
-        allowPrerelease: true
-      settings:
-        id:  VideoLAN.VLC
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Wireshark
-      directives:
-        description: Install Wireshark
-        allowPrerelease: true
-      settings:
-        id:  WiresharkFoundation.Wireshark
-        source: winget
+        id: {{ .store_id | quote }}
+        source: {{ .source | quote }}
+    {{ end }}
+    {{ end }}
 
   configurationVersion: 0.2.0
 "@
