@@ -44,7 +44,10 @@
   {{ if eq .chezmoi.os "darwin" -}}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
   {{- else if eq .chezmoi.os "windows" -}}
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  program = "C:/Users/stefa/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+  {{- else if eq .is_wsl true -}}
+  # TODO: replace username/path with variable and test it
+  program = "/mnt/c/Users/stefa/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
   {{ end }}
   allowedSignersFile = "$HOME/.ssh/allowed_signers"
 {{ end -}}
