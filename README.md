@@ -14,7 +14,7 @@ chezmoi managed dotfiles for these platforms:
 ### Installation
 
 ```bash {"id":"01J71HR6TYNDB008RKTP5T162D"}
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply stefanschulte
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply robbikaiser
 ```
 
 ### Manual steps required
@@ -32,7 +32,7 @@ Start with opening a powershell terminal and run the below commands:
 
 ```powershell {"id":"01J71HR6TYNDB008RKTSYZ441E"}
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
-chezmoi init --apply --verbose https://github.com/stefanschulte/dotfiles.git
+chezmoi init --apply --verbose https://github.com/robbikaiser/dotfiles.git
 ```
 
 After finishing the Windows application installations, we need to setup the 1password ssh agent integration:
@@ -49,4 +49,4 @@ After having created your user and password, run the command (from inside the Ub
 
 ## License
 
-This project is released under the [MIT License](https://github.com/stefanschulte/dotfiles/blob/main/LICENSE).
+This project is released under the [MIT License](https://github.com/robbikaiser/dotfiles/blob/main/LICENSE).

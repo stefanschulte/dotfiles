@@ -38,6 +38,19 @@ properties:
         Ensure: Present
         # Use caution when setting `RestartExplorer: true` as this will force explorer to close.
         RestartExplorer: true # Required to apply changes
+    - resource: Microsoft.Windows.Developer/Taskbar
+      directives:
+        description: Set Alignment to middle
+        allowPrerelease: true
+      settings:
+        Alignment: Middle
+    - resource: Microsoft.Windows.Developer/Taskbar
+      directives:
+        description: Disable Widgetsbutton
+        allowPrerelease: true
+      settings:
+        WidgetsButton: Hide
+
 
     # Install generic packages
     {{ range .packages.windows.generic -}}

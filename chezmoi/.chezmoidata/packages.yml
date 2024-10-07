@@ -23,9 +23,9 @@ packages:
         store_id: JanDeDobbeleer.OhMyPosh
         source: winget
         allowPrerelease: false
-      - id: WSL Ubuntu 24.04 LTS
-        description: Install Ubuntu 24.04 LTS
-        store_id: 9NZ3KLHXDJP5
+      - id: Install Debian 12.5 (Bookworm) WSL
+        description: Install Debian 12.5 (Bookworm) WSL
+        store_id: 9MSVKQC78PK6
         source: msstore
         allowPrerelease: false
       - id: Visual Studio Code
@@ -68,16 +68,6 @@ packages:
         store_id: GitHub.cli
         source: winget
         allowPrerelease: false
-      - id: Slack
-        description: Install Slack
-        store_id: SlackTechnologies.Slack
-        source: winget
-        allowPrerelease: false
-      - id: Spotify
-        description: Install Spotify
-        store_id: Spotify.Spotify
-        source: winget
-        allowPrerelease: false
       - id: Wireshark
         description: Install Wireshark
         store_id: WiresharkFoundation.Wireshark
@@ -88,9 +78,49 @@ packages:
         store_id: Bruno.Bruno
         source: winget
         allowPrerelease: false
-      - id: Firefox Dev Edition
-        description: Install Firefox Developer Edition
-        store_id: Mozilla.Firefox.DeveloperEdition
+      - id: 7zip
+        description: Install 7zip
+        store_id: 7zip.7zip
+        source: winget
+        allowPrerelease: false
+      - id: Cisco WebEx
+        description: Install Cisco WebEx
+        store_id: Cisco.Webex
+        source: winget
+        allowPrerelease: false
+      - id: WinSCP
+        description: Install WinSCP
+        store_id: WinSCP.WinSCP
+        source: winget
+        allowPrerelease: false
+      - id: Greenshot
+        description: Install Greenshot
+        store_id: Greenshot.Greenshot
+        source: winget
+        allowPrerelease: false
+      - id: MobaXterm
+        description: Install MobaXterm
+        store_id: Mobatek.MobaXterm
+        source: winget
+        allowPrerelease: false
+      - id: Notepad++
+        description: Install Notepad++
+        store_id: Notepad++.Notepad++
+        source: winget
+        allowPrerelease: false
+      - id: PuTTY
+        description: Install PuTTY
+        store_id: PuTTY.PuTTY
+        source: winget
+        allowPrerelease: false
+      - id: RemoteDesktopClient
+        description: Install RemoteDesktopClient
+        store_id: Microsoft.RemoteDesktopClient
+        source: winget
+        allowPrerelease: false
+      - id: Zoom Workplace
+        description: Install Zoom Workplace
+        store_id: Zoom.Zoom
         source: winget
         allowPrerelease: false
     # Work applications that are pre-installed on company owned devices, but have to be installed on private devices used for work.
