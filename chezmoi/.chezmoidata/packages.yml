@@ -33,9 +33,9 @@ packages:
         store_id: Microsoft.VisualStudioCode
         source: winget
         allowPrerelease: false
-      - id: Docker for Desktop
-        description: Install Docker for Desktop
-        store_id: Docker.DockerDesktop
+      - id: Rancher Desktop for local docker dev
+        description: Install Rancher Desktop
+        store_id: suse.RancherDesktop
         source: winget
         allowPrerelease: false
       - id: MS Terminal
