@@ -31,7 +31,7 @@ Start with opening a powershell terminal and run the below commands:
 (the first command executes the script to install the chezmoi binary, the second command download and applies your dotfiles)
 
 ```powershell {"id":"01J71HR6TYNDB008RKTSYZ441E"}
-iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
+winget install twpayne.chezmoi
 chezmoi init --apply --verbose https://github.com/stefanschulte/dotfiles.git
 ```
 

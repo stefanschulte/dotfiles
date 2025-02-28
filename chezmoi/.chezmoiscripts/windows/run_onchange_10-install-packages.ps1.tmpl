@@ -3,7 +3,7 @@
 # Self-elevate the script if required
 if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
   if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
-    $CommandLine = "-File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+    $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
     Start-Process -Wait -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
     Exit
   }
@@ -38,6 +38,18 @@ properties:
         Ensure: Present
         # Use caution when setting `RestartExplorer: true` as this will force explorer to close.
         RestartExplorer: true # Required to apply changes
+    - resource: Microsoft.Windows.Developer/Taskbar
+      directives:
+        description: Set Alignment to middle
+        allowPrerelease: true
+      settings:
+        Alignment: Middle
+    - resource: Microsoft.Windows.Developer/Taskbar
+      directives:
+        description: Disable Widgetsbutton
+        allowPrerelease: true
+      settings:
+        WidgetsButton: Hide
 
     # Install generic packages
     {{ range .packages.windows.generic -}}
@@ -81,6 +93,15 @@ properties:
 
   configurationVersion: 0.2.0
 "@
+
+{{ if (or (eq .is_personal_device_used_work true) (eq .is_company_device true)) -}}
+# Install RSAT Tools from online source if work device
+Add-WindowsCapability -Online -Name "Rsat.CertificateServices.Tools~~~~0.0.1.0"
+Add-WindowsCapability -Online -Name "Rsat.Dns.Tools~~~~0.0.1.0"
+Add-WindowsCapability -Online -Name "Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0"
+Add-WindowsCapability -Online -Name "Rsat.ServerManager.Tools~~~~0.0.1.0"
+Add-WindowsCapability -Online -Name "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
+{{ end }}
 
 # Function to create a temporary file
 function New-TemporaryFile {
