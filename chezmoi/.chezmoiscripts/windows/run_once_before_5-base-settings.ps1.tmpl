@@ -25,6 +25,13 @@ if ($longPathsEnabled.LongPathsEnabled -ne 1) {
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
 }
 
+# Install winget package manager
+$wingetInstalled = Get-Command winget -ErrorAction SilentlyContinue
+if (-not $wingetInstalled) {
+    # Install winget
+    Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+}
+
 # Enable WSL2 Feature
 # Run the wsl --status command
 $wslStatus = wsl --status
