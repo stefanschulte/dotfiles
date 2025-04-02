@@ -1,0 +1,17 @@
+{{ if eq .chezmoi.os "darwin" -}}
+initial-window = false
+shell-integration = zsh
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = false
+background-opacity = 0.95
+background-blur-radius = 20
+font-size = 16
+font-family = SauceCodePro Nerd Font
+macos-titlebar-style = hidden
+theme = tokyonight
+confirm-close-surface = false
+window-padding-balance = true
+window-padding-x = 20
+window-padding-y = 25
+{{ end }}

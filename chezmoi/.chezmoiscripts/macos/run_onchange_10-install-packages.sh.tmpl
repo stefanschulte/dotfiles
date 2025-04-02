@@ -47,15 +47,18 @@ cask "1password"                            # 1Password for Mac - https://1passw
 cask "1password-cli"                        # 1Password CLI - https://1password.com/
 cask "balenaetcher"                         # Flash tool for images/isos - https://etcher.balena.io/
 cask "bartender"                            # Hide menu bar icons on macOS - https://www.macbartender.com/
+cask "blockblock"                           # Blockblock malware detection tool - https://objective-see.com/products/blockblock.html
 cask "bruno"                                # scriptable API client - https://www.usebruno.com/
 cask "discord"                              # Discord group chat - https://discord.com/
 cask "firefox@developer-edition"            # Firefox Developer Edition - https://www.mozilla.org/en-GB/firefox/developer/
 cask "focusrite-control"                    # Focusrite Audio interface control app - https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_type=1360&download_type=all
-cask "font-meslo-lg-nerd-font"              # Install font for terminal - https://coding-fonts.pages.dev/fonts/meslo-lg/
+cask "font-sauce-code-pro-nerd-font"        # Install font for terminal
 cask "intune-company-portal"                # Microsoft Intune Company Portal - https://learn.microsoft.com/en-us/mem/intune/user-help/enroll-your-device-in-intune-macos-cp
-cask "iterm2"                               # iTerm2 terminal emulator - https://iterm2.com/
+cask "ghostty"                              # Ghostty terminal emulator - https://ghostty.org/
 cask "jellyfin-media-player"                # Media player for jellyfin servers - https://github.com/jellyfin/jellyfin-media-player
+cask "jetbrains-toolbox"                    # JetBrains Toolbox - https://www.jetbrains.com/toolbox-app/
 cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
+cask "little-snitch"                        # Outbound firewall for macOS - https://www.obdev.at/products/littlesnitch/index.html
 cask "microsoft-azure-storage-explorer"     # Microsoft Azure Storage Explorer - https://azure.microsoft.com/en-us/features/storage-explorer/
 cask "microsoft-edge"                       # Microsoft Edge browser - https://www.microsoft.com/en-us/edge
 cask "microsoft-teams"                      # Microsoft Teams - https://www.microsoft.com/en-us/microsoft-teams/download-app
@@ -71,13 +74,16 @@ cask "spacelauncher"                        # macOS app launcher - https://space
 cask "spotify"                              # Spotify music client - https://www.spotify.com/
 cask "steam"                                # Steam game client - https://store.steampowered.com/
 cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
-cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
 cask "visual-studio-code"                   # Visual Studio Code - https://code.visualstudio.com/
+cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
+cask "vmware-fusion"                        # Virtualization hypervisor - https://www.vmware.com/products/fusion.html
 cask "wireshark"                            # Wireshark network protocol analyzer - https://www.wireshark.org/
+cask "zen-browser"                          # Zen browser (Firefox based) - https://zen-browser.app/
 
 # Be aware that Apple does not allow to script initial downloads or purchases from the App store.
 # An initial install must always happen via the App Store GUI. After that your apple account is flagged for that application and the app can be installed via the command line.
 mas "1Password for Safari", id: 1569813296   # 1Password extension for Safari
+mas "Cyberduck", id: 409222199               # FTP/SFTP/WebDAV/Cloud storage client - https://cyberduck.io/
 mas "Dark Reader for Safari", id: 1438243180 # Dark mode browser extension for Safari
 mas "Wipr", id: 1320666476                   # Adblocker extension for Safari
 mas "Keka", id: 470158793                    # File compression utility, since macOS has no good builtin one - Paid app!!
@@ -86,9 +92,10 @@ mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
-mas "Reeder", id: 1529448980                 # RSS reader - https://reederapp.com/
+mas "Okta Verify", id: 490179405             # Okta 2FA app
 mas "Shazam", id: 897118787                  # Music recognition app
 mas "Slack", id: 803453959                   # Slack group chat
+mas "Windows App", id: 1295203466            # Windows RDP app for macOS
 
 EOF
 {{ end -}}

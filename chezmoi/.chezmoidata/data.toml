@@ -1,6 +1,6 @@
 [git]
     name = "Stefan Schulte"
-    email = "github@stefanschulte.dev"
+    email = "stefan.schulte@viega.de"
 
 # Signing git commits with your SSH key
 [git.sshsigning]
