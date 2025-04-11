@@ -3,7 +3,7 @@
 
 # For forcing homebrew to replace existing applications that were installed manually, add "--force" to the brew bundle command
 # For uninstalling applications that aren't part of this bundle definition, add "--cleanup" to the brew bundle command
-brew bundle --no-lock --no-upgrade --cleanup --file=/dev/stdin <<EOF
+brew bundle --no-upgrade --cleanup --file=/dev/stdin <<EOF
 
 cask_args appdir: '/Applications'
 
