@@ -29,11 +29,6 @@ defaults write com.apple.dock "autohide-delay" -float "0.1"
 defaults write com.apple.dock "autohide-time-modifier" -float "1"
 killall Dock # Restart the Dock to apply changes
 
-# iterm2
-# TODO: put config into dotfiles and let iterm update it
-defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/stefan/Library/Mobile Documents/com~apple~CloudDocs/config/iterm2" # Set the custom path for settings icloud sync
-
-
 # Enable 3-finger drag
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true

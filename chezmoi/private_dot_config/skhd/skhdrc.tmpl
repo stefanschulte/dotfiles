@@ -17,10 +17,10 @@ hyper - k : yabai -m window --focus north
 hyper - l : yabai -m window --focus east
 
 # swap managed window
-hyper - a : yabai -m window --swap west
-hyper - s : yabai -m window --swap south
-hyper - d: yabai -m window --swap north
-hyper - f : yabai -m window --swap east
+hyper - u : yabai -m window --swap west
+hyper - i : yabai -m window --swap south
+hyper - o: yabai -m window --swap north
+hyper - p : yabai -m window --swap east
 
 # move managed window
 shift + alt - h : yabai -m window --warp west
@@ -29,10 +29,10 @@ shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
 # rotate tree
-hyper - r : yabai -m space --rotate 90
+# hyper - r : yabai -m space --rotate 90
 
 # toggle window fullscreen zoom
-hyper - w : yabai -m window --toggle zoom-fullscreen
+# hyper - w : yabai -m window --toggle zoom-fullscreen
 
 # alt - s : yabai -m window --toggle
 shift + alt - s : yabai -m window --toggle sticky;\
@@ -47,7 +47,7 @@ hyper - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
 # toggle window split type
-hyper - e : yabai -m window --toggle split
+# hyper - e : yabai -m window --toggle split
 
 # bring up mission-control
 hyper - m : yabai -m space --toggle mission-control
@@ -71,6 +71,17 @@ shift + alt - 0 : yabai -m window --space 10; yabai -m space --focus 10
 hyper - n : index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                    yabai -m window --space "$index" && \
                    yabai -m space --focus "$index"
+
+# Open and focus apps
+hyper - a : open /Applications/Ghostty.app/
+hyper - s : open /Applications/Visual\ Studio\ Code.app/
+hyper - d : open /Applications/Arc.app/
+hyper - f : open /Applications/Obsidian.app/
+hyper - r : open /Applications/Microsoft\ Teams.app/
+hyper - e : open /Applications/Microsoft\ Outlook.app/
+hyper - w : open /Applications/Access\ Console\ -\ access.viega.com.app/
+hyper - q : open ~ # Open Finder in home directory
+
 
 # fast focus desktop
 hyper - tab : yabai -m space --focus recent
