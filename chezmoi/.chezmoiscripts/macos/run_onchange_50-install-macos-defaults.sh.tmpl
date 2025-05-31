@@ -7,10 +7,11 @@
 # TODO: split this out into feature subfolders
 
 ## Topnotch config
-defaults write pl.maketheweb.TopNotch "roundCorners" -bool "false"
+defaults write pl.maketheweb.TopNotch "roundCorners" -bool "true"
+defaults write pl.maketheweb.TopNotch "cornerRadius" -float "1"
 defaults write pl.maketheweb.TopNotch "useDynamicWallpapers" -bool "false"
 defaults write pl.maketheweb.TopNotch "lastAcceptedEulaVersion" -bool "true"
-defaults write pl.maketheweb.TopNotch "hideOnBuiltInOnly" -bool "true"
+defaults write pl.maketheweb.TopNotch "hideOnBuiltInOnly" -bool "false"
 defaults write pl.maketheweb.TopNotch "firstLaunch" -bool "false"
 defaults write pl.maketheweb.TopNotch "hideMenubarIcon" -bool "false"
 defaults write pl.maketheweb.TopNotch "isEnabled" -bool "true"
@@ -43,10 +44,8 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.finder AppleShowAllExtensions -bool true
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-
 # Search in current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf
-
 
 # Allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
@@ -54,6 +53,4 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 # Avoid creating .DS_Store files on USB or network volumes
 defaults write com.apple.desktopservices dsdontwriteusbstores -bool true
 defaults write com.apple.desktopservices dsdontwritenetworkstores -bool true
-
-
 {{ end -}}
