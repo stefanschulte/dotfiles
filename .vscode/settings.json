@@ -8,6 +8,9 @@
       "*.sh.tmpl": "shellscript",
       "*.ps1.tmpl": "powershell",
       "dot_*rc": "shellscript",
-      "dot_*rc.tmpl": "shellscript",
+      ".tmpl": "shellscript",
+      "yabairc.tmpl": "shellscript",
+      "whkdrc.tmpl": "powershell",
+      "skhdrc.tmpl": "shellscript"
   }
 }
