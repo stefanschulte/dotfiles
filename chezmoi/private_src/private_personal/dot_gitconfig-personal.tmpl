@@ -1,0 +1,8 @@
+[user]
+    name = {{ .git.personal.name | quote }}
+    email = {{ .git.personal.email | quote }}
+    {{ if (and (eq .git.sshsigning_enabled true) (ne .is_devcontainer true)) -}}
+    signingkey = {{ .git.personal.signingkey | quote }}
+    {{- end }}
+[core]
+    sshCommand = ssh -i ~/.ssh/stefanschulte.pub

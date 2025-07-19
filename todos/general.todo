@@ -1,7 +1,4 @@
 # General todos
-
 - [ ] Clean up the chezmoi binary (bin/chezmoi) when having used the bootstrap install option
-- [ ] Allow for company and private input data (currently there is only global data)
 - [ ] Find a way to do the initial zplug plugins install in the background before first terminal open
 - [ ] Support for custom (nerd optimized) fonts through all OSes, with the ability to quickly set it in his data
-- [ ] On private devices that are used for company work, allow for both git credentials to live next to another and automatic switching in git. Allow for the user to choose a folder name for his sources in his home directory and split up gitconfigs for private and company work in subfolders. Consider all-my-repos use case of multiple github accounts when deciding on folder structure.

@@ -1,9 +1,9 @@
-[user]
-    name = {{ .git.name | quote }}
-    email = {{ .git.email | quote }}
-    {{ if (and (eq .git.sshsigning.enabled true) (ne .is_devcontainer true)) -}}
-    signingkey = {{ .git.sshsigning.signingkey | quote }}
-    {{- end }}
+[includeIf "gitdir:~/src/personal/"]
+    path = ~/src/personal/.gitconfig-personal
+[includeIf "gitdir:~/.local/share/"]
+    path = ~/src/personal/.gitconfig-personal
+[includeIf "gitdir:~/src/work/"]
+    path = ~/src/work/.gitconfig-work
 [color]
     ui = true
 [core]
@@ -41,7 +41,7 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-{{- if (and (eq .git.sshsigning.enabled true) (ne .is_devcontainer true)) }}
+{{- if (and (eq .git.sshsigning_enabled true) (ne .is_devcontainer true)) }}
 [commit]
   gpgsign = true
 [gpg]

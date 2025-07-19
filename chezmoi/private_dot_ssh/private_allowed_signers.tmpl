@@ -1,3 +1,8 @@
-{{ if eq .git.sshsigning.enabled true -}}
-{{ .git.email }} {{ .git.sshsigning.signingkey }}
+{{- if eq .git.sshsigning_enabled true -}}
+{{- if (or (eq .is_personal_device true) (eq .is_personal_device_used_work true)) -}}
+{{ .git.personal.email }} {{ .git.personal.signingkey }}
 {{ end }}
+{{- if (or (eq .is_company_device true) (eq .is_personal_device_used_work true)) -}}
+{{ .git.work.email }} {{ .git.work.signingkey }}
+{{ end -}}
+{{ end -}}

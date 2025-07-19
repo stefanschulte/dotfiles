@@ -1,10 +1,14 @@
 [git]
+    sshsigning_enabled = true
+
+[git.personal]
+    name = "Stefan Schulte"
+    email = "github@stefanschulte.dev"
+    signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqiRpRIpaxz2cx8GVjnFhZJD8j8QxB1A0ojGy5dujZ5"
+
+[git.work]
     name = "Stefan Schulte"
     email = "stefan.schulte@viega.de"
-
-# Signing git commits with your SSH key
-[git.sshsigning]
-    enabled = true
     signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R"
 
 [ssh]
