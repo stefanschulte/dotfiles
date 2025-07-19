@@ -1,20 +1,15 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-# Download the required root certs from Viega CRL endpoint (managed by IT-sec)
-# TODO: move the certs into this repo to not rely on the crl endpoint uptime as well as broken cert file formats.
-sudo curl -o /etc/ssl/certs/zscaler-root-ca.pem http://crl.viega.com/zscaler-root-ca.crt
-sudo curl -o /etc/ssl/certs/viega-root-2035.pem http://crl.viega.com/vsatn-root-ca-1_VIEGA%20Root%20CA%202012\(1\).crt
-
 # Add Viega pki root certs to macOS keychain
-sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /etc/ssl/certs/zscaler-root-ca.pem
-sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /etc/ssl/certs/viega-root-2035.pem
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.certs/zscaler-root.crt
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.certs/viega-root.crt
 
 # Update /etc/ssl/cert.pem with custom root certificates
 # This is considered a workaround. macOS OS updates will wipe custom certs from the /etc/ssl/cert.pem file again, unless they are managed by an approved MDM solution.
 # Creating our own ca-bundle file is the alternative to that.
 # TODO: use mozilla ca-bundle file as base and add custom root certs to it
-#sudo sh -c 'cat /etc/ssl/certs/zscaler-root-ca.pem /etc/ssl/certs/viega-root-2035.pem >> /etc/ssl/cert.pem'
+#sudo sh -c 'cat ~/.certs/zscaler-root.crt ~/.certs/viega-root.crt >> /etc/ssl/cert.pem'
 
 # TODO: update firefox cert store, if firefox feature enabled
 
