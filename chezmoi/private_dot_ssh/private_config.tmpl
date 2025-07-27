@@ -1,4 +1,8 @@
+Host 127.0.0.1
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
 Host *
-        User {{ .ssh.default_username }}
-        ServerAliveInterval 30
-        SetEnv TERM=xterm-256color # Ghostty xterm configs are not yet widespread available on all systems, so a fallback is used. See https://ghostty.org/docs/help/terminfo#ssh
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
+    SetEnv TERM=xterm-256color # Ghostty xterm configs are not yet widespread available on all systems, so a fallback is used. See https://ghostty.org/docs/help/terminfo#ssh
