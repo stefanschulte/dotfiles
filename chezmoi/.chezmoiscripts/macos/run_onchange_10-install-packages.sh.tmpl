@@ -7,7 +7,6 @@ brew bundle --no-upgrade --cleanup --file=/dev/stdin <<EOF
 
 cask_args appdir: '/Applications'
 
-tap "jesseduffield/lazygit"                 # Used for lazygit
 tap "koekeishiya/formulae"                  # Used for yabai/skhd
 tap "powershell/tap"                        # Used for PowerShell Core
 tap "warrensbox/tap"                        # Used for tfswitch
@@ -24,7 +23,6 @@ brew "git-delta"                            # Better Git diff viewer - https://g
 brew "git-filter-repo"                      # Git history rewriting tool for cleaning up git repos - https://github.com/newren/git-filter-repo
 brew "git-lfs"                              # Git Large File Storage plugin - https://git-lfs.github.com/
 brew "git-sizer"                            # Git repository size checker - https://github.com/github/git-sizer
-brew "glances"                              # CLI System monitoring tool - https://nicolargo.github.io/glances/
 brew "jq"                                   # JSON processor - https://stedolan.github.io/jq/
 brew "lf"                                   # Terminal file manager - https://github.com/gokcehan/lf
 brew "mas"                                  # Apple App Store CLI - https://github.com/mas-cli/mas
@@ -40,7 +38,7 @@ brew "warrensbox/tap/tfswitch"              # Terraform version manager - https:
 brew "tldr"                                 # Condensed versions of man pages - https://tldr.sh/
 brew "wget"                                 # Download utility - https://www.gnu.org/software/wget/
 brew "yq"                                   # YAML processor - https://github.com/mikefarah/yq
-brew "jesseduffield/lazygit/lazygit"        # CLI GUI for git operations - https://github.com/jesseduffield/lazygit
+brew "lazygit"                              # CLI GUI for git operations - https://github.com/jesseduffield/lazygit
 brew "koekeishiya/formulae/skhd"            # Simple hotkey daemon for macOS, to be used with Yabai - https://github.com/koekeishiya/skhd
 brew "koekeishiya/formulae/yabai"           # Tiling window manager for macOS - https://github.com/koekeishiya/yabai
 brew "powershell/tap/powershell"            # PowerShell Core - https://learn.microsoft.com/en-gb/powershell/
@@ -76,9 +74,7 @@ cask "steam"                                # Steam game client - https://store.
 cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
 cask "visual-studio-code"                   # Visual Studio Code - https://code.visualstudio.com/
 cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
-# cask "vmware-fusion"                        # Virtualization hypervisor - https://www.vmware.com/products/fusion.html
-cask "wireshark"                            # Wireshark network protocol analyzer - https://www.wireshark.org/
-# cask "zen-browser"                          # Zen browser (Firefox based) - https://zen-browser.app/
+cask "wireshark-app"                        # Wireshark network protocol analyzer - https://www.wireshark.org/
 
 # Be aware that Apple does not allow to script initial downloads or purchases from the App store.
 # An initial install must always happen via the App Store GUI. After that your apple account is flagged for that application and the app can be installed via the command line.
