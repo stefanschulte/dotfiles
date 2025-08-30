@@ -1,0 +1,2 @@
+# Requires the use of flox and the convention of having a secrets.env file for all 1password secrets
+alias tf="op run --env-file secrets.env -- $FLOX_ENV/bin/terraform"

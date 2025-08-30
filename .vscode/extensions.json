@@ -1,6 +1,14 @@
 {
   "recommendations": [
-    // Remote extensionpack contains extensions required for using the recommended devcontainer feature of this repo
-    "ms-vscode-remote.vscode-remote-extensionpack"
+    "redhat.vscode-yaml",
+    "rogalmic.bash-debug",
+    "timonwong.shellcheck",
+    "EditorConfig.EditorConfig",
+    "DavidAnson.vscode-markdownlint",
+    "Gruntfuggly.todo-tree",
+    "esbenp.prettier-vscode",
+    // "dotenv.dotenv-vscode",
+    "ms-vscode.powershell",
+    "tamasfe.even-better-toml"
   ]
 }

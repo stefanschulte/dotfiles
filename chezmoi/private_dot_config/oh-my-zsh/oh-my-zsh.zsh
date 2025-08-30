@@ -30,6 +30,7 @@ zplug "romkatv/powerlevel10k", as:theme, depth:1
 # oh-my-zsh plugins
 zplug plugins/git,   from:oh-my-zsh, defer:3
 zplug plugins/z,   from:oh-my-zsh, defer:3
+zplug plugins/direnv,   from:oh-my-zsh, defer:3
 # defer means to load this plugin after all the other plugins
 zplug zdharma-continuum/fast-syntax-highlighting, defer:2
 # command auto-suggestion based on history

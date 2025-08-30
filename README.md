@@ -25,7 +25,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply stefanschulte
 
 ## Windows
 
-### Installation
+### Windows installation
 
 Start with opening a powershell terminal and run the below commands:
 (the first command executes the script to install the chezmoi binary, the second command download and applies your dotfiles)
