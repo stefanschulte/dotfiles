@@ -63,21 +63,7 @@ properties:
         source: {{ .source | quote }}
     {{ end }}
 
-    {{ if eq .is_personal_device_used_work true -}}
-    # Install extended company packages (non company-provided device which is missing preinstalled company software) on your private device used for work
-    {{ range .packages.windows.company_extended -}}
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: {{ .id | quote }}
-      directives:
-        description:  {{ .description | quote }}
-        allowPrerelease: {{ .allowPrerelease | quote }}
-      settings:
-        id: {{ .store_id | quote }}
-        source: {{ .source | quote }}
-    {{ end }}
-    {{ end }}
-
-    {{ if (or (eq .is_personal_device true) (eq .is_personal_device_used_work true)) -}}
+    {{ if eq .is_personal_device true -}}
     # Install private packages
     {{ range .packages.windows.private -}}
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -94,7 +80,7 @@ properties:
   configurationVersion: 0.2.0
 "@
 
-{{ if (or (eq .is_personal_device_used_work true) (eq .is_company_device true)) -}}
+{{ if eq .is_company_device true -}}
 # Install RSAT Tools from online source if work device
 Add-WindowsCapability -Online -Name "Rsat.CertificateServices.Tools~~~~0.0.1.0"
 Add-WindowsCapability -Online -Name "Rsat.Dns.Tools~~~~0.0.1.0"

@@ -1,4 +1,4 @@
-{{ if eq .feature.komorebi.enabled true -}}
+{{ if (and (eq .feature.komorebi.enabled true) (eq .is_personal_device true)) -}}
 - name: Guitar Rig 7
   identifier:
     kind: Exe

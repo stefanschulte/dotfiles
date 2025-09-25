@@ -1,4 +1,5 @@
 {{ if eq .chezmoi.os "darwin" -}}
+{{ if (and (eq .feature.bartender.enabled true) (eq .is_personal_device true)) -}}
 {
   "showBartenderBar" : false,
   "showMenuBarIcon" : true,
@@ -109,4 +110,5 @@
     "screenName" : ""
   }
 }
+{{ end }}
 {{ end -}}

@@ -1,19 +1,49 @@
+########################################
+# Generic
+########################################
+
 [git]
-    sshsigning_enabled = true
+sshsigning_enabled = true
 
 [git.personal]
-    name = "Stefan Schulte"
-    email = "github@stefanschulte.dev"
-    signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqiRpRIpaxz2cx8GVjnFhZJD8j8QxB1A0ojGy5dujZ5"
+name = "Stefan Schulte"
+email = "github@stefanschulte.dev"
+signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqiRpRIpaxz2cx8GVjnFhZJD8j8QxB1A0ojGy5dujZ5"
 
 [git.work]
-    name = "Stefan Schulte"
-    email = "stefan.schulte@viega.de"
-    signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R"
+name = "Stefan Schulte"
+email = "stefan.schulte@viega.de"
+signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPdYeu7Ag9LRTOedk71jeGZ0QjQMCoHiQsVbsYpUR8R"
 
 [ssh]
-    default_username = "schultes"
+default_username = "schultes"
+
+########################################
+# macOS specific
+########################################
+
+[feature.yabai]
+enabled = true
+
+[feature.topnotch]
+enabled = true
+
+[feature.sensiblesidebuttons]
+enabled = true
+
+[feature.bartender]
+enabled = true
+
+[feature.karabiner]
+enabled = true
+
+[feature.flox]
+enabled = true
+
+########################################
+# Windows specific
+########################################
 
 # Komorebi is a tiling window manager for Microsoft Windows
 [feature.komorebi]
-    enabled = false
+enabled = false

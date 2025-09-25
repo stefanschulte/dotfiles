@@ -1,4 +1,5 @@
 {{ if eq .chezmoi.os "darwin" -}}
+{{ if (and (eq .feature.yabai.enabled true) (eq .is_personal_device true)) -}}
 #!/usr/bin/env sh
 
 # A tiling window manager for macOS
@@ -43,4 +44,5 @@ yabai -m config window_gap 0
 # yabai -m rule --add app="^Zscaler$" manage=off
 
 echo "yabai configuration loaded.."
+{{ end -}}
 {{ end -}}

@@ -1,16 +1,16 @@
 {
   "files.associations": {
-      "*.alias": "shellscript",
-      "*.toml.tmpl": "toml",
-      "*.json.tmpl": "json",
-      "*.yml.tmpl": "yaml",
-      "*.yaml.tmpl": "yaml",
-      "*.sh.tmpl": "shellscript",
-      "*.ps1.tmpl": "powershell",
-      "dot_*rc": "shellscript",
-      ".tmpl": "shellscript",
-      "yabairc.tmpl": "shellscript",
-      "whkdrc.tmpl": "powershell",
-      "skhdrc.tmpl": "shellscript"
+    "*.alias": "shellscript",
+    "*.toml.tmpl": "toml",
+    "*.json.tmpl": "json",
+    "*.yml.tmpl": "yaml",
+    "*.yaml.tmpl": "yaml",
+    "*.sh.tmpl": "shellscript",
+    "*.ps1.tmpl": "powershell",
+    "dot_*rc.tmpl": "shellscript",
+    ".tmpl": "shellscript",
+    "yabairc.tmpl": "shellscript",
+    "whkdrc.tmpl": "powershell",
+    "skhdrc.tmpl": "shellscript"
   }
 }

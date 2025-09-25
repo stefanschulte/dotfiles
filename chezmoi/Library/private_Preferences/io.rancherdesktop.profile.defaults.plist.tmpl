@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "darwin" -}}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -7,15 +8,15 @@
     <key>application</key>
     <dict>
       <key>adminAccess</key>
-      <true/>
+      <true />
       <key>debug</key>
-      <false/>
+      <false />
       <key>extensions</key>
       <dict>
         <key>allowed</key>
         <dict>
           <key>enabled</key>
-          <false/>
+          <false />
           <key>list</key>
           <array>
           </array>
@@ -35,23 +36,23 @@
       <key>telemetry</key>
       <dict>
         <key>enabled</key>
-        <false/>
+        <false />
       </dict>
       <key>updater</key>
       <dict>
         <key>enabled</key>
-        <true/>
+        <true />
       </dict>
       <key>autoStart</key>
-      <true/>
+      <true />
       <key>startInBackground</key>
-      <true/>
+      <true />
       <key>hideNotificationIcon</key>
-      <false/>
+      <false />
       <key>window</key>
       <dict>
         <key>quitOnClose</key>
-        <false/>
+        <false />
       </dict>
     </dict>
     <key>containerEngine</key>
@@ -61,7 +62,7 @@
       <key>allowedImages</key>
       <dict>
         <key>enabled</key>
-        <false/>
+        <false />
         <key>patterns</key>
         <array>
         </array>
@@ -76,7 +77,7 @@
       <key>type</key>
       <string>vz</string>
       <key>useRosetta</key>
-      <true/>
+      <true />
     </dict>
     <key>kubernetes</key>
     <dict>
@@ -85,18 +86,18 @@
       <key>port</key>
       <integer>6443</integer>
       <key>enabled</key>
-      <false/>
+      <false />
       <key>options</key>
       <dict>
         <key>traefik</key>
-        <true/>
+        <true />
         <key>flannel</key>
-        <true/>
+        <true />
       </dict>
       <key>ingress</key>
       <dict>
         <key>localhostOnly</key>
-        <false/>
+        <false />
       </dict>
     </dict>
     <key>experimental</key>
@@ -106,7 +107,7 @@
         <key>webAssembly</key>
         <dict>
           <key>enabled</key>
-          <false/>
+          <false />
         </dict>
       </dict>
       <key>kubernetes</key>
@@ -114,7 +115,7 @@
         <key>options</key>
         <dict>
           <key>spinkube</key>
-          <false/>
+          <false />
         </dict>
       </dict>
       <key>virtualMachine</key>
@@ -138,7 +139,7 @@
         <key>proxy</key>
         <dict>
           <key>enabled</key>
-          <false/>
+          <false />
           <key>address</key>
           <string></string>
           <key>password</key>
@@ -170,31 +171,32 @@
     <key>portForwarding</key>
     <dict>
       <key>includeKubernetesServices</key>
-      <false/>
+      <false />
     </dict>
     <key>images</key>
     <dict>
       <key>showAll</key>
-      <true/>
+      <true />
       <key>namespace</key>
       <string>default</string>
     </dict>
     <key>containers</key>
     <dict>
       <key>showAll</key>
-      <true/>
+      <true />
       <key>namespace</key>
       <string>default</string>
     </dict>
     <key>diagnostics</key>
     <dict>
       <key>showMuted</key>
-      <false/>
+      <false />
       <key>mutedChecks</key>
       <dict>
         <key>RD_BIN_IN_BASH_PATH</key>
-        <true/>
+        <true />
       </dict>
     </dict>
   </dict>
 </plist>
+{{ end -}}
