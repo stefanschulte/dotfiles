@@ -4,7 +4,7 @@ Host 127.0.0.1
     UserKnownHostsFile /dev/null
 
 Host CM
-    User schultes
+    User {{ .ssh.default_username }}
     Hostname vsatn-lincon-t.servers.emea.dir
     ForwardAgent yes
 {{ end -}}

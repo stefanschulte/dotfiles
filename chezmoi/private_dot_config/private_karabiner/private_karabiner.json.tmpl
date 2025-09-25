@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.os "darwin" -}}
-{{ if (and (eq .feature.karabiner.enabled true) (eq .is_personal_device true)) -}}
+{{ if eq .feature.karabiner.enabled true -}}
 {
     "profiles": [
         {

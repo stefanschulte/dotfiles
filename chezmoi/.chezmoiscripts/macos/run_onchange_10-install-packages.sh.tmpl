@@ -39,7 +39,6 @@ brew "yq"                                   # YAML processor - https://github.co
 brew "lazygit"                              # CLI GUI for git operations - https://github.com/jesseduffield/lazygit
 brew "powershell/tap/powershell"            # PowerShell Core - https://learn.microsoft.com/en-gb/powershell/
 
-cask "arc"                                  # Arc Browser
 cask "1password"                            # 1Password for Mac - https://1password.com/
 cask "1password-cli"                        # 1Password CLI - https://1password.com/
 cask "bruno"                                # scriptable API client - https://www.usebruno.com/
@@ -48,20 +47,18 @@ cask "firefox@developer-edition"            # Firefox Developer Edition - https:
 cask "flox"                                 # Flox - https://flox.dev/
 {{ end -}}
 cask "font-sauce-code-pro-nerd-font"        # Install font for terminal
-cask "ghostty"                              # Ghostty terminal emulator - https://ghostty.org/
-cask "jetbrains-toolbox"                    # JetBrains Toolbox - https://www.jetbrains.com/toolbox-app/
+{{- if eq .feature.karabiner.enabled true }}
+cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
+{{ end -}}
 cask "microsoft-azure-storage-explorer"     # Microsoft Azure Storage Explorer - https://azure.microsoft.com/en-us/features/storage-explorer/
 cask "microsoft-edge"                       # Microsoft Edge browser - https://www.microsoft.com/en-us/edge
-cask "obsidian"                             # Knowledge Base/2nd Brain - https://obsidian.md/
 cask "rancher"                              # Rancher for Desktop - https://rancherdesktop.io/
 cask "raycast"                              # Application launcher, replaces spotlight - https://www.raycast.com/
 {{- if (and (eq .feature.sensiblesidebuttons.enabled true) (eq .is_personal_device true)) }}
 cask "sensiblesidebuttons"                  # Adds Windows-like mouse side button functionality to macOS, https://sensible-side-buttons.archagon.net/
 {{ end -}}
 cask "slack"                                # Slack group chat - https://slack.com/
-cask "spotify"                              # Spotify music client - https://www.spotify.com/
 cask "visual-studio-code"                   # Visual Studio Code - https://code.visualstudio.com/
-cask "wireshark-app"                        # Wireshark network protocol analyzer - https://www.wireshark.org/
 
 
 {{ if eq .is_personal_device true -}}
@@ -83,10 +80,8 @@ cask "blockblock"                           # Blockblock malware detection tool 
 cask "discord"                              # Discord group chat - https://discord.com/
 cask "focusrite-control"                    # Focusrite Audio interface control app - https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_type=1360&download_type=all
 cask "jellyfin-media-player"                # Media player for jellyfin servers - https://github.com/jellyfin/jellyfin-media-player
-{{- if (and (eq .feature.karabiner.enabled true) (eq .is_personal_device true)) }}
-cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
-{{ end -}}
 cask "little-snitch"                        # Outbound firewall for macOS - https://www.obdev.at/products/littlesnitch/index.html
+cask "obsidian"                             # Knowledge Base/2nd Brain - https://obsidian.md/
 cask "proton-mail"                          # ProtonMail mail client - https://protonmail.com/
 cask "signal"                               # Signal messenger - https://signal.org/
 cask "steam"                                # Steam game client - https://store.steampowered.com/

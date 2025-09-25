@@ -56,4 +56,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 # Avoid creating .DS_Store files on USB or network volumes
 defaults write com.apple.desktopservices dsdontwriteusbstores -bool true
 defaults write com.apple.desktopservices dsdontwritenetworkstores -bool true
+
+# Enable reduce motion (disables most animations)
+defaults write com.apple.Accessibility ReduceMotionEnabled -bool true
 {{ end -}}
