@@ -1,3 +1,4 @@
+{{ if eq .is_company_device true -}}
 Host 127.0.0.1
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
@@ -6,6 +7,7 @@ Host CM
     User schultes
     Hostname vsatn-lincon-t.servers.emea.dir
     ForwardAgent yes
+{{ end -}}
 
 Host *
     ServerAliveInterval 60

@@ -20,8 +20,6 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply stefanschulte
 ### Manual steps required
 
 - Enable the 1password ssh agent
-- PRA Access console - Access console needs to be manually downloaded from access.viega.com/login since it's console specific download.
-- zscaler download if Viega device
 
 ## Windows
 
@@ -40,12 +38,6 @@ While documentation for this step is currently out-of-scope of this readme, the 
 
 After having activated 1password ssh agent, now start the newly installed "Ubuntu" app, this will open a terminal and guide you through the initial setup of a barebone Ubuntu WSL environment.
 After having created your user and password, run the command (from inside the Ubuntu WSL shell) listed under "macOS and Linux" in this readme to bootstrap the Ubuntu WSL environment.
-
-### Post installation manual steps required
-
-- PRA Access console - Access console needs to be manually downloaded from access.viega.com/login since it's console specific download.
-- zscaler download if private device is used for work
-- Maybe: make windows terminal the default terminal
 
 ## License
 

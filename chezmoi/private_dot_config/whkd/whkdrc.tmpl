@@ -1,3 +1,4 @@
+{{ if (and (eq .feature.komorebi.enabled true) (eq .is_personal_device true)) -}}
 .shell pwsh
 
 # Reload whkd configuration
@@ -75,3 +76,4 @@ alt + shift + 7         : komorebic move-to-workspace 6
 alt + shift + 8         : komorebic move-to-workspace 7
 alt + shift + 9         : komorebic move-to-workspace 8
 alt + shift + 0         : komorebic move-to-workspace 9
+{{ end -}}

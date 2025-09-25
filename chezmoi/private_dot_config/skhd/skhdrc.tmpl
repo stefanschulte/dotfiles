@@ -1,4 +1,5 @@
 {{ if eq .chezmoi.os "darwin" -}}
+{{ if (and (eq .feature.yabai.enabled true) (eq .is_personal_device true)) -}}
 #!/usr/bin/env sh
 
 # Simple hotkey daemon for macOS
@@ -41,6 +42,17 @@ hyper - n : index="$(yabai -m query --spaces --display | jq 'map(select(."is-nat
                    yabai -m space --focus "$index"
 
 # Quick focus desktops
+# hyper - a : yabai -m space --focus 1
+# hyper - s : yabai -m space --focus 2
+# hyper - d : yabai -m space --focus 3
+# hyper - f : yabai -m space --focus 4
+# hyper - r : yabai -m space --focus 5
+# hyper - e : yabai -m space --focus 6
+# hyper - w : yabai -m space --focus 7
+# hyper - q : yabai -m space --focus 8
+# hyper - x : yabai -m space --focus 9
+# hyper - c : yabai -m space --focus 10
+
 hyper - a : yabai -m space --focus 1
 hyper - s : yabai -m space --focus 2
 hyper - d : yabai -m space --focus 3
@@ -54,4 +66,5 @@ hyper - c : yabai -m space --focus 10
 
 # fast focus desktop
 hyper - tab : yabai -m space --focus recent
+{{ end -}}
 {{ end -}}

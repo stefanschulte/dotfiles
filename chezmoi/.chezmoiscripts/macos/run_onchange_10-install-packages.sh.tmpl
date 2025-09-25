@@ -7,7 +7,6 @@ brew bundle --no-upgrade --cleanup --file=/dev/stdin <<EOF
 
 cask_args appdir: '/Applications'
 
-tap "koekeishiya/formulae"                  # Used for yabai/skhd
 tap "powershell/tap"                        # Used for PowerShell Core
 tap "warrensbox/tap"                        # Used for tfswitch
 
@@ -24,10 +23,9 @@ brew "git-delta"                            # Better Git diff viewer - https://g
 brew "git-filter-repo"                      # Git history rewriting tool for cleaning up git repos - https://github.com/newren/git-filter-repo
 brew "git-lfs"                              # Git Large File Storage plugin - https://git-lfs.github.com/
 brew "git-sizer"                            # Git repository size checker - https://github.com/github/git-sizer
+brew "go"                                   # Go programming language - https://golang.org/
 brew "jq"                                   # JSON processor - https://stedolan.github.io/jq/
 brew "lf"                                   # Terminal file manager - https://github.com/gokcehan/lf
-brew "mas"                                  # Apple App Store CLI - https://github.com/mas-cli/mas
-brew "mosh"                                 # Mobile shell for unreliable ssh connections - https://mosh.org/
 brew "ncdu"                                 # Disk usage analyzer - https://dev.yorhel.nl/ncdu
 brew "neovim"                               # neovim text editor - https://neovim.io/
 brew "nvm"                                  # Node Version Manager - https://github.com/nvm-sh/nvm
@@ -36,47 +34,66 @@ brew "prettyping"                           # Ping utility with a pretty output 
 brew "ripgrep"                              # grep alternative - https://github.com/BurntSushi/ripgrep
 brew "testssl"                              # SSL/TLS security testing tool - https://testssl.sh/
 brew "warrensbox/tap/tfswitch"              # Terraform version manager - https://tfswitch.warrensbox.com/
-brew "tldr"                                 # Condensed versions of man pages - https://tldr.sh/
 brew "wget"                                 # Download utility - https://www.gnu.org/software/wget/
 brew "yq"                                   # YAML processor - https://github.com/mikefarah/yq
 brew "lazygit"                              # CLI GUI for git operations - https://github.com/jesseduffield/lazygit
-brew "koekeishiya/formulae/skhd"            # Simple hotkey daemon for macOS, to be used with Yabai - https://github.com/koekeishiya/skhd
-brew "koekeishiya/formulae/yabai"           # Tiling window manager for macOS - https://github.com/koekeishiya/yabai
 brew "powershell/tap/powershell"            # PowerShell Core - https://learn.microsoft.com/en-gb/powershell/
+
 cask "arc"                                  # Arc Browser
 cask "1password"                            # 1Password for Mac - https://1password.com/
 cask "1password-cli"                        # 1Password CLI - https://1password.com/
-cask "balenaetcher"                         # Flash tool for images/isos - https://etcher.balena.io/
-cask "bartender"                            # Hide menu bar icons on macOS - https://www.macbartender.com/
-cask "blockblock"                           # Blockblock malware detection tool - https://objective-see.com/products/blockblock.html
 cask "bruno"                                # scriptable API client - https://www.usebruno.com/
-cask "discord"                              # Discord group chat - https://discord.com/
 cask "firefox@developer-edition"            # Firefox Developer Edition - https://www.mozilla.org/en-GB/firefox/developer/
+{{- if (and (eq .feature.flox.enabled true) (eq .is_personal_device true)) }}
 cask "flox"                                 # Flox - https://flox.dev/
-cask "focusrite-control"                    # Focusrite Audio interface control app - https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_type=1360&download_type=all
+{{ end -}}
 cask "font-sauce-code-pro-nerd-font"        # Install font for terminal
-cask "intune-company-portal"                # Microsoft Intune Company Portal - https://learn.microsoft.com/en-us/mem/intune/user-help/enroll-your-device-in-intune-macos-cp
 cask "ghostty"                              # Ghostty terminal emulator - https://ghostty.org/
-cask "jellyfin-media-player"                # Media player for jellyfin servers - https://github.com/jellyfin/jellyfin-media-player
 cask "jetbrains-toolbox"                    # JetBrains Toolbox - https://www.jetbrains.com/toolbox-app/
-cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
-cask "little-snitch"                        # Outbound firewall for macOS - https://www.obdev.at/products/littlesnitch/index.html
 cask "microsoft-azure-storage-explorer"     # Microsoft Azure Storage Explorer - https://azure.microsoft.com/en-us/features/storage-explorer/
 cask "microsoft-edge"                       # Microsoft Edge browser - https://www.microsoft.com/en-us/edge
-cask "microsoft-teams"                      # Microsoft Teams - https://www.microsoft.com/en-us/microsoft-teams/download-app
 cask "obsidian"                             # Knowledge Base/2nd Brain - https://obsidian.md/
-cask "onedrive"                             # Microsoft OneDrive - https://www.microsoft.com/en-us/microsoft-365/onedrive/download
-cask "proton-mail"                          # ProtonMail mail client - https://protonmail.com/
 cask "rancher"                              # Rancher for Desktop - https://rancherdesktop.io/
 cask "raycast"                              # Application launcher, replaces spotlight - https://www.raycast.com/
+{{- if (and (eq .feature.sensiblesidebuttons.enabled true) (eq .is_personal_device true)) }}
 cask "sensiblesidebuttons"                  # Adds Windows-like mouse side button functionality to macOS, https://sensible-side-buttons.archagon.net/
-cask "signal"                               # Signal messenger - https://signal.org/
+{{ end -}}
+cask "slack"                                # Slack group chat - https://slack.com/
 cask "spotify"                              # Spotify music client - https://www.spotify.com/
-cask "steam"                                # Steam game client - https://store.steampowered.com/
-cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
 cask "visual-studio-code"                   # Visual Studio Code - https://code.visualstudio.com/
-cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
 cask "wireshark-app"                        # Wireshark network protocol analyzer - https://www.wireshark.org/
+
+
+{{ if eq .is_personal_device true -}}
+# Install additional packages only on personal devices
+
+{{- if (and (eq .feature.yabai.enabled true) (eq .is_personal_device true)) }}
+tap "koekeishiya/formulae"                  # Used for yabai/skhd
+
+brew "koekeishiya/formulae/skhd"            # Simple hotkey daemon for macOS, to be used with Yabai - https://github.com/koekeishiya/skhd
+brew "koekeishiya/formulae/yabai"           # Tiling window manager for macOS - https://github.com/koekeishiya/yabai
+{{ end -}}
+brew "mas"                                  # Apple App Store CLI - https://github.com/mas-cli/mas
+
+cask "balenaetcher"                         # Flash tool for images/isos - https://etcher.balena.io/
+{{- if (and (eq .feature.bartender.enabled true) (eq .is_personal_device true)) }}
+cask "bartender"                            # Hide menu bar icons on macOS - https://www.macbartender.com/
+{{ end -}}
+cask "blockblock"                           # Blockblock malware detection tool - https://objective-see.com/products/blockblock.html
+cask "discord"                              # Discord group chat - https://discord.com/
+cask "focusrite-control"                    # Focusrite Audio interface control app - https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_type=1360&download_type=all
+cask "jellyfin-media-player"                # Media player for jellyfin servers - https://github.com/jellyfin/jellyfin-media-player
+{{- if (and (eq .feature.karabiner.enabled true) (eq .is_personal_device true)) }}
+cask "karabiner-elements"                   # Key remapper software for macOS, https://github.com/pqrs-org/Karabiner-Elements
+{{ end -}}
+cask "little-snitch"                        # Outbound firewall for macOS - https://www.obdev.at/products/littlesnitch/index.html
+cask "proton-mail"                          # ProtonMail mail client - https://protonmail.com/
+cask "signal"                               # Signal messenger - https://signal.org/
+cask "steam"                                # Steam game client - https://store.steampowered.com/
+{{- if (and (eq .feature.topnotch.enabled true) (eq .is_personal_device true)) }}
+cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
+{{ end -}}
+cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
 
 # Be aware that Apple does not allow to script initial downloads or purchases from the App store.
 # An initial install must always happen via the App Store GUI. After that your apple account is flagged for that application and the app can be installed via the command line.
@@ -86,14 +103,13 @@ mas "Dark Reader for Safari", id: 1438243180 # Dark mode browser extension for S
 mas "Wipr", id: 1320666476                   # Adblocker extension for Safari
 mas "Keka", id: 470158793                    # File compression utility, since macOS has no good builtin one - Paid app!!
 mas "Keymapp", id: 6472865291                # Flash/configuration/training tool for ZSA keyboards - https://www.zsa.io/flash
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft Outlook", id: 985367838
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "Okta Verify", id: 490179405             # Okta 2FA app
 mas "Shazam", id: 897118787                  # Music recognition app
-mas "Slack", id: 803453959                   # Slack group chat
-mas "Windows App", id: 1295203466            # Windows RDP app for macOS
+{{ end -}}
+
+{{ if eq .is_company_device true -}}
+# Install additional packages only on company owned devices
+
+{{ end -}}
 
 EOF
 {{ end -}}

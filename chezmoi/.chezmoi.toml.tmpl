@@ -7,7 +7,6 @@
 
 {{- $company_device := false }}
 {{- $personal_device := false }}
-{{- $personal_device_used_work := false }}
 
 {{- if $interactive -}}
 {{-   range $i := until 99 -}}
@@ -20,21 +19,8 @@
 {{-       writeToStdout (printf "✅ Device is set up as a company owned device") -}}
 {{-       break -}}
 {{-     else if eq $answer "N" -}}
-{{-       range $i := until 99 -}}
-{{-         $question := "❔ Will this personal device be used for company work" -}}
-{{-         $answer := "" -}}
-{{-         $choices := list "Y" "N" -}}
-{{-         $answer := promptChoice $question $choices -}}
-{{-         if eq $answer "Y" -}}
-{{-           $personal_device_used_work = true -}}
-{{-           writeToStdout (printf "✅ Device is set up as a personal device that is also being used for work") -}}
-{{-           break -}}
-{{-         else if eq $answer "N" -}}
-{{-           $personal_device = true -}}
-{{-           writeToStdout (printf "✅ Device is set up as a personal device") -}}
-{{-           break -}}
-{{-         end -}}
-{{-       end -}}
+{{-       $personal_device = true -}}
+{{-       writeToStdout (printf "✅ Device is set up as a personal device") -}}
 {{-       break -}}
 {{-     end -}}
 {{-     if eq $i 98 -}}
@@ -53,6 +39,5 @@
 [data]
     is_company_device= {{- $company_device }}
     is_personal_device= {{- $personal_device }}
-    is_personal_device_used_work= {{- $personal_device_used_work }}
     is_wsl= {{- $wsl }}
     is_devcontainer= {{- $devcontainer }}

@@ -1,5 +1,11 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
-# TODO: check if brew is installed, then do nothing aka proper idempotence
+
+# Check if brew is already installed
+if command -v brew >/dev/null 2>&1; then
+  echo "Homebrew is already installed."
+  exit 0
+fi
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 {{ end -}}
