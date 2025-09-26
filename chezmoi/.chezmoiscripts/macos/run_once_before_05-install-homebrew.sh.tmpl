@@ -8,4 +8,8 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Initialize homebrew so it can immediately be used for installing packages in next step
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 {{ end -}}

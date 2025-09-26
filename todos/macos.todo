@@ -1,7 +1,5 @@
 # TODO: powerline git status (changed files etc) doesn't properly update on macos with powerlevel10k?
-# TODO: sdkman installation https://sdkman.io/install
 # TODO: change chezmoi git url to ssh after initial install. cleanup orphaned chezmoi binary in ~/bin
-# TODO: after initial bat install and after files are copied, run `bat cache --build` to build the syntax cache
 # TODO: add macos standard terminal settings (font, theme) to the script
 # TODO: after nvm install, install latest lts node version and set as default. Also set env variable for nvmrc usage
 # TODO: add testcontainer config to work without admin permissions on rancher

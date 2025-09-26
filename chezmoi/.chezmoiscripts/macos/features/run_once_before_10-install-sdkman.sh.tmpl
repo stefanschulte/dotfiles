@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Check if SDKMAN is already installed by looking for the installation directory
+if [[ -d "$HOME/.sdkman" ]]; then
+  echo "SDKMAN is already installed."
+  exit 0
+fi
+
+# Install SDKMAN without updating the shell rc file, since we do that in the sdkman.zsh template
+curl -s "https://get.sdkman.io?rcupdate=false" | bash
+
+{{ end -}}

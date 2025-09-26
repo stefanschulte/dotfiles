@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Update bat theme cache after copying new theme files
+bat cache --build
+
+{{ end -}}
