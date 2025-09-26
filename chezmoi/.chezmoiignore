@@ -3,7 +3,6 @@
 Library/
 Library/**
 
-.config/bartender
 .config/karabiner
 .config/skhd
 .config/yabai

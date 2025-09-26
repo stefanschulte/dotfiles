@@ -71,9 +71,6 @@ brew "koekeishiya/formulae/yabai"           # Tiling window manager for macOS - 
 brew "mas"                                  # Apple App Store CLI - https://github.com/mas-cli/mas
 
 cask "balenaetcher"                         # Flash tool for images/isos - https://etcher.balena.io/
-{{- if (and (eq .feature.bartender.enabled true) (eq .is_personal_device true)) }}
-cask "bartender"                            # Hide menu bar icons on macOS - https://www.macbartender.com/
-{{ end -}}
 cask "blockblock"                           # Blockblock malware detection tool - https://objective-see.com/products/blockblock.html
 cask "discord"                              # Discord group chat - https://discord.com/
 cask "focusrite-control"                    # Focusrite Audio interface control app - https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_type=1360&download_type=all
@@ -83,9 +80,6 @@ cask "obsidian"                             # Knowledge Base/2nd Brain - https:/
 cask "proton-mail"                          # ProtonMail mail client - https://protonmail.com/
 cask "signal"                               # Signal messenger - https://signal.org/
 cask "steam"                                # Steam game client - https://store.steampowered.com/
-{{- if (and (eq .feature.topnotch.enabled true) (eq .is_personal_device true)) }}
-cask "topnotch"                             # Hide the notch on MacBooks when hiding the top menu bar, Closed source though!! - https://topnotch.app/
-{{ end -}}
 cask "vlc"                                  # VLC media player - https://www.videolan.org/vlc/
 
 # Be aware that Apple does not allow to script initial downloads or purchases from the App store.
