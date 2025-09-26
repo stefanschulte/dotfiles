@@ -28,9 +28,6 @@ enabled = true
 [feature.topnotch]
 enabled = true
 
-[feature.sensiblesidebuttons]
-enabled = true
-
 [feature.bartender]
 enabled = true
 

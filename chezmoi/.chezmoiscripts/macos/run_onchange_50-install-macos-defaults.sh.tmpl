@@ -17,10 +17,7 @@ defaults write pl.maketheweb.TopNotch "firstLaunch" -bool "false"
 defaults write pl.maketheweb.TopNotch "hideMenubarIcon" -bool "false"
 defaults write pl.maketheweb.TopNotch "isEnabled" -bool "true"
 {{ end }}
-{{- if (and (eq .feature.sensiblesidebuttons.enabled true) (eq .is_personal_device true)) }}
-## Sensible sidebuttons
-defaults write net.archagon.sensible-side-buttons "SBFWasEnabled" -bool "true"
-{{ end }}
+
 # Dock
 defaults write com.apple.dock "autohide" -bool "true"
 defaults write com.apple.dock "tilesize" -int "80"

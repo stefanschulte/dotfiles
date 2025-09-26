@@ -26,6 +26,7 @@ brew "git-sizer"                            # Git repository size checker - http
 brew "go"                                   # Go programming language - https://golang.org/
 brew "jq"                                   # JSON processor - https://stedolan.github.io/jq/
 brew "lf"                                   # Terminal file manager - https://github.com/gokcehan/lf
+brew "lnav"                                 # Shell log file viewer - https://lnav.org/
 brew "ncdu"                                 # Disk usage analyzer - https://dev.yorhel.nl/ncdu
 brew "neovim"                               # neovim text editor - https://neovim.io/
 brew "nvm"                                  # Node Version Manager - https://github.com/nvm-sh/nvm
@@ -54,9 +55,6 @@ cask "microsoft-azure-storage-explorer"     # Microsoft Azure Storage Explorer -
 cask "microsoft-edge"                       # Microsoft Edge browser - https://www.microsoft.com/en-us/edge
 cask "rancher"                              # Rancher for Desktop - https://rancherdesktop.io/
 cask "raycast"                              # Application launcher, replaces spotlight - https://www.raycast.com/
-{{- if (and (eq .feature.sensiblesidebuttons.enabled true) (eq .is_personal_device true)) }}
-cask "sensiblesidebuttons"                  # Adds Windows-like mouse side button functionality to macOS, https://sensible-side-buttons.archagon.net/
-{{ end }}
 cask "slack"                                # Slack group chat - https://slack.com/
 cask "visual-studio-code"                   # Visual Studio Code - https://code.visualstudio.com/
 
