@@ -1,0 +1,19 @@
+{{if eq .is_company_device true -}}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+   <key>Label</key>
+   <string>set.env.vars</string>
+   <key>ProgramArguments</key>
+   <array>
+       <string>launchctl</string>
+       <string>setenv</string>
+       <string>JAVA_TOOL_OPTIONS</string>
+       <string>-Djavax.net.ssl.trustStore=/Users/{{ .chezmoi.username }}/cacerts</string>
+   </array>
+   <key>RunAtLoad</key>
+   <true/>
+</dict>
+</plist>
+{{ end -}}

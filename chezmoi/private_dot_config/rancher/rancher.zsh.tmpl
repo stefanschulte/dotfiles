@@ -1,4 +1,13 @@
 {{ if eq .chezmoi.os "darwin" -}}
 # Add rancher desktop to path
 export PATH="/Users/{{ .chezmoi.username }}/.rd/bin:$PATH"
+
+# Allow testcontainers to run without admin privileges of the docker daemon
+export DOCKER_HOST=unix://$HOME/.rd/docker.sock
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show vznat | awk '/inet / {sub("/.*",""); print $2}')
+export TESTCONTAINERS_TC_HOST=$TESTCONTAINERS_HOST_OVERRIDE
+export TESTCONTAINERS_CHECKS_DISABLE=false
+export TESTCONTAINERS_RYUK_DISABLED=true
+export TESTCONTAINERS_RYUK_CONTAINER_PRIVILEGED=false
 {{ end -}}
