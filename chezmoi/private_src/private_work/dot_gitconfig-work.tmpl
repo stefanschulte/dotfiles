@@ -1,3 +1,4 @@
+{{if eq .is_company_device true -}}
 [user]
     name = {{ .git.work.name | quote }}
     email = {{ .git.work.email | quote }}
@@ -6,3 +7,4 @@
     {{- end }}
 [core]
     sshCommand = ssh -i ~/.ssh/stefan-schulte_viega.pub
+{{ end -}}
