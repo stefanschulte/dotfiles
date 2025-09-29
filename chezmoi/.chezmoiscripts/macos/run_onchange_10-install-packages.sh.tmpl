@@ -95,7 +95,8 @@ mas "Shazam", id: 897118787                  # Music recognition app
 
 {{ if eq .is_company_device true -}}
 # Install additional packages only on company owned devices
-
+tap "adobe-marketing-cloud/brews"
+brew "adobe-marketing-cloud/brews/repo"      # AEM repository tool - https://github.com/Adobe-Marketing-Cloud/tools/tree/master/repo
 {{ end -}}
 
 EOF
